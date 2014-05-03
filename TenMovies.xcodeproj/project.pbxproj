@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		766D5EA9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
+		766D5EAB191567DC002DFDA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EAA191567DC002DFDA3 /* CoreGraphics.framework */; };
+		766D5EAD191567DC002DFDA3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EAC191567DC002DFDA3 /* UIKit.framework */; };
+		766D5EB3191567DC002DFDA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 766D5EB1191567DC002DFDA3 /* InfoPlist.strings */; };
+		766D5EB5191567DC002DFDA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EB4191567DC002DFDA3 /* main.m */; };
+		766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EB8191567DC002DFDA3 /* AppDelegate.m */; };
+		766D5EBC191567DC002DFDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766D5EBA191567DC002DFDA3 /* Main.storyboard */; };
+		766D5EBF191567DC002DFDA3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EBE191567DC002DFDA3 /* ViewController.m */; };
+		766D5EC1191567DC002DFDA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766D5EC0191567DC002DFDA3 /* Images.xcassets */; };
+		766D5EC8191567DC002DFDA3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EC7191567DC002DFDA3 /* XCTest.framework */; };
+		766D5EC9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
+		766D5ECA191567DC002DFDA3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EAC191567DC002DFDA3 /* UIKit.framework */; };
+		766D5ED2191567DC002DFDA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 766D5ED0191567DC002DFDA3 /* InfoPlist.strings */; };
+		766D5ED4191567DC002DFDA3 /* TenMoviesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5ED3191567DC002DFDA3 /* TenMoviesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		766D5ECB191567DC002DFDA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 766D5E9D191567DB002DFDA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 766D5EA4191567DC002DFDA3;
+			remoteInfo = TenMovies;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		766D5EA5191567DC002DFDA3 /* TenMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		766D5EA8191567DC002DFDA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		766D5EAA191567DC002DFDA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		766D5EAC191567DC002DFDA3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		766D5EB0191567DC002DFDA3 /* TenMovies-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TenMovies-Info.plist"; sourceTree = "<group>"; };
+		766D5EB2191567DC002DFDA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		766D5EB4191567DC002DFDA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		766D5EB6191567DC002DFDA3 /* TenMovies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TenMovies-Prefix.pch"; sourceTree = "<group>"; };
+		766D5EB7191567DC002DFDA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		766D5EB8191567DC002DFDA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		766D5EBB191567DC002DFDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		766D5EBD191567DC002DFDA3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		766D5EBE191567DC002DFDA3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		766D5EC0191567DC002DFDA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		766D5EC6191567DC002DFDA3 /* TenMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		766D5EC7191567DC002DFDA3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		766D5ECF191567DC002DFDA3 /* TenMoviesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TenMoviesTests-Info.plist"; sourceTree = "<group>"; };
+		766D5ED1191567DC002DFDA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		766D5ED3191567DC002DFDA3 /* TenMoviesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TenMoviesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		766D5EA2191567DC002DFDA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5EAB191567DC002DFDA3 /* CoreGraphics.framework in Frameworks */,
+				766D5EAD191567DC002DFDA3 /* UIKit.framework in Frameworks */,
+				766D5EA9191567DC002DFDA3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		766D5EC3191567DC002DFDA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5EC8191567DC002DFDA3 /* XCTest.framework in Frameworks */,
+				766D5ECA191567DC002DFDA3 /* UIKit.framework in Frameworks */,
+				766D5EC9191567DC002DFDA3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		766D5E9C191567DB002DFDA3 = {
+			isa = PBXGroup;
+			children = (
+				766D5EAE191567DC002DFDA3 /* TenMovies */,
+				766D5ECD191567DC002DFDA3 /* TenMoviesTests */,
+				766D5EA7191567DC002DFDA3 /* Frameworks */,
+				766D5EA6191567DC002DFDA3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		766D5EA6191567DC002DFDA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				766D5EA5191567DC002DFDA3 /* TenMovies.app */,
+				766D5EC6191567DC002DFDA3 /* TenMoviesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		766D5EA7191567DC002DFDA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				766D5EA8191567DC002DFDA3 /* Foundation.framework */,
+				766D5EAA191567DC002DFDA3 /* CoreGraphics.framework */,
+				766D5EAC191567DC002DFDA3 /* UIKit.framework */,
+				766D5EC7191567DC002DFDA3 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		766D5EAE191567DC002DFDA3 /* TenMovies */ = {
+			isa = PBXGroup;
+			children = (
+				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
+				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
+				766D5EBA191567DC002DFDA3 /* Main.storyboard */,
+				766D5EBD191567DC002DFDA3 /* ViewController.h */,
+				766D5EBE191567DC002DFDA3 /* ViewController.m */,
+				766D5EC0191567DC002DFDA3 /* Images.xcassets */,
+				766D5EAF191567DC002DFDA3 /* Supporting Files */,
+			);
+			path = TenMovies;
+			sourceTree = "<group>";
+		};
+		766D5EAF191567DC002DFDA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				766D5EB0191567DC002DFDA3 /* TenMovies-Info.plist */,
+				766D5EB1191567DC002DFDA3 /* InfoPlist.strings */,
+				766D5EB4191567DC002DFDA3 /* main.m */,
+				766D5EB6191567DC002DFDA3 /* TenMovies-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		766D5ECD191567DC002DFDA3 /* TenMoviesTests */ = {
+			isa = PBXGroup;
+			children = (
+				766D5ED3191567DC002DFDA3 /* TenMoviesTests.m */,
+				766D5ECE191567DC002DFDA3 /* Supporting Files */,
+			);
+			path = TenMoviesTests;
+			sourceTree = "<group>";
+		};
+		766D5ECE191567DC002DFDA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				766D5ECF191567DC002DFDA3 /* TenMoviesTests-Info.plist */,
+				766D5ED0191567DC002DFDA3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		766D5EA4191567DC002DFDA3 /* TenMovies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 766D5ED7191567DC002DFDA3 /* Build configuration list for PBXNativeTarget "TenMovies" */;
+			buildPhases = (
+				766D5EA1191567DC002DFDA3 /* Sources */,
+				766D5EA2191567DC002DFDA3 /* Frameworks */,
+				766D5EA3191567DC002DFDA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TenMovies;
+			productName = TenMovies;
+			productReference = 766D5EA5191567DC002DFDA3 /* TenMovies.app */;
+			productType = "com.apple.product-type.application";
+		};
+		766D5EC5191567DC002DFDA3 /* TenMoviesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 766D5EDA191567DC002DFDA3 /* Build configuration list for PBXNativeTarget "TenMoviesTests" */;
+			buildPhases = (
+				766D5EC2191567DC002DFDA3 /* Sources */,
+				766D5EC3191567DC002DFDA3 /* Frameworks */,
+				766D5EC4191567DC002DFDA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				766D5ECC191567DC002DFDA3 /* PBXTargetDependency */,
+			);
+			name = TenMoviesTests;
+			productName = TenMoviesTests;
+			productReference = 766D5EC6191567DC002DFDA3 /* TenMoviesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		766D5E9D191567DB002DFDA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Scott Kensell";
+				TargetAttributes = {
+					766D5EC5191567DC002DFDA3 = {
+						TestTargetID = 766D5EA4191567DC002DFDA3;
+					};
+				};
+			};
+			buildConfigurationList = 766D5EA0191567DC002DFDA3 /* Build configuration list for PBXProject "TenMovies" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 766D5E9C191567DB002DFDA3;
+			productRefGroup = 766D5EA6191567DC002DFDA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				766D5EA4191567DC002DFDA3 /* TenMovies */,
+				766D5EC5191567DC002DFDA3 /* TenMoviesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		766D5EA3191567DC002DFDA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5EC1191567DC002DFDA3 /* Images.xcassets in Resources */,
+				766D5EB3191567DC002DFDA3 /* InfoPlist.strings in Resources */,
+				766D5EBC191567DC002DFDA3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		766D5EC4191567DC002DFDA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5ED2191567DC002DFDA3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		766D5EA1191567DC002DFDA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5EBF191567DC002DFDA3 /* ViewController.m in Sources */,
+				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
+				766D5EB5191567DC002DFDA3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		766D5EC2191567DC002DFDA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766D5ED4191567DC002DFDA3 /* TenMoviesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		766D5ECC191567DC002DFDA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 766D5EA4191567DC002DFDA3 /* TenMovies */;
+			targetProxy = 766D5ECB191567DC002DFDA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		766D5EB1191567DC002DFDA3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				766D5EB2191567DC002DFDA3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		766D5EBA191567DC002DFDA3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				766D5EBB191567DC002DFDA3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		766D5ED0191567DC002DFDA3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				766D5ED1191567DC002DFDA3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		766D5ED5191567DC002DFDA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		766D5ED6191567DC002DFDA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		766D5ED8191567DC002DFDA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
+				INFOPLIST_FILE = "TenMovies/TenMovies-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		766D5ED9191567DC002DFDA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
+				INFOPLIST_FILE = "TenMovies/TenMovies-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		766D5EDB191567DC002DFDA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TenMovies.app/TenMovies";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TenMoviesTests/TenMoviesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		766D5EDC191567DC002DFDA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TenMovies.app/TenMovies";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
+				INFOPLIST_FILE = "TenMoviesTests/TenMoviesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		766D5EA0191567DC002DFDA3 /* Build configuration list for PBXProject "TenMovies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				766D5ED5191567DC002DFDA3 /* Debug */,
+				766D5ED6191567DC002DFDA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		766D5ED7191567DC002DFDA3 /* Build configuration list for PBXNativeTarget "TenMovies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				766D5ED8191567DC002DFDA3 /* Debug */,
+				766D5ED9191567DC002DFDA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		766D5EDA191567DC002DFDA3 /* Build configuration list for PBXNativeTarget "TenMoviesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				766D5EDB191567DC002DFDA3 /* Debug */,
+				766D5EDC191567DC002DFDA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 766D5E9D191567DB002DFDA3 /* Project object */;
+}

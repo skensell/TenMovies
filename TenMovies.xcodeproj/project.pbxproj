@@ -14,7 +14,6 @@
 		766D5EB5191567DC002DFDA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EB4191567DC002DFDA3 /* main.m */; };
 		766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EB8191567DC002DFDA3 /* AppDelegate.m */; };
 		766D5EBC191567DC002DFDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766D5EBA191567DC002DFDA3 /* Main.storyboard */; };
-		766D5EBF191567DC002DFDA3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EBE191567DC002DFDA3 /* ViewController.m */; };
 		766D5EC1191567DC002DFDA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766D5EC0191567DC002DFDA3 /* Images.xcassets */; };
 		766D5EC8191567DC002DFDA3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EC7191567DC002DFDA3 /* XCTest.framework */; };
 		766D5EC9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
@@ -28,6 +27,7 @@
 		766D5EEF19158D2D002DFDA3 /* NSString+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EE919158D2D002DFDA3 /* NSString+Contains.m */; };
 		766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EEB19158D2D002DFDA3 /* NSString+Trim.m */; };
 		766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EF5191591A0002DFDA3 /* TextHelper.m */; };
+		766D5EFC19164267002DFDA3 /* AppDelegate+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,6 @@
 		766D5EB7191567DC002DFDA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		766D5EB8191567DC002DFDA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		766D5EBB191567DC002DFDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		766D5EBD191567DC002DFDA3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		766D5EBE191567DC002DFDA3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		766D5EC0191567DC002DFDA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		766D5EC6191567DC002DFDA3 /* TenMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		766D5EC7191567DC002DFDA3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -76,6 +74,10 @@
 		766D5EF319158F29002DFDA3 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		766D5EF4191591A0002DFDA3 /* TextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextHelper.h; sourceTree = "<group>"; };
 		766D5EF5191591A0002DFDA3 /* TextHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextHelper.m; sourceTree = "<group>"; };
+		766D5EF9191641C5002DFDA3 /* AppDelegate_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_Private.h; sourceTree = "<group>"; };
+		766D5EFA19164267002DFDA3 /* AppDelegate+Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Database.h"; sourceTree = "<group>"; };
+		766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Database.m"; sourceTree = "<group>"; };
+		766D5EFD19164499002DFDA3 /* DatabaseAvailabilityNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAvailabilityNotification.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +139,11 @@
 			children = (
 				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
 				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
+				766D5EF9191641C5002DFDA3 /* AppDelegate_Private.h */,
+				766D5EFA19164267002DFDA3 /* AppDelegate+Database.h */,
+				766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */,
+				766D5EFD19164499002DFDA3 /* DatabaseAvailabilityNotification.h */,
 				766D5EBA191567DC002DFDA3 /* Main.storyboard */,
-				766D5EBD191567DC002DFDA3 /* ViewController.h */,
-				766D5EBE191567DC002DFDA3 /* ViewController.m */,
 				766D5EF719159316002DFDA3 /* Convenience */,
 				766D5EE0191585D3002DFDA3 /* MovieFetcher */,
 				766D5EAF191567DC002DFDA3 /* Supporting Files */,
@@ -313,7 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				766D5EEF19158D2D002DFDA3 /* NSString+Contains.m in Sources */,
-				766D5EBF191567DC002DFDA3 /* ViewController.m in Sources */,
+				766D5EFC19164267002DFDA3 /* AppDelegate+Database.m in Sources */,
 				766D5EEC19158D2D002DFDA3 /* NSArray+JSON.m in Sources */,
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,

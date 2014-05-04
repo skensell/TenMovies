@@ -8,26 +8,31 @@
 
 #import "MovieFetcher.h"
 #import "MovieFetcherAPIKey.h"
+#import "NSString+Contains.h"
 
-static const NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
-
+static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
+static NSString *kDiscoveryQuery = @"discover/movie";
 
 @implementation MovieFetcher
 
 
 + (NSURL *)URLForDiscovery {
-    NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@", kBaseUrl,
-                           @"", @"", @"" ];
-    return nil;
+    return [self _URLFromQuery:kDiscoveryQuery];
 }
 
-+ (NSString *)_URLStringFromQuery:(NSString *)query {
+#pragma mark - Private
+
++ (NSURL *)_URLFromQuery:(NSString *)query {
     if ([query length] && [query hasPrefix:@"/"]) {
         query = [query substringFromIndex:1];
     }
-    
-    return [NSString stringWithFormat:@"%@%@%@api_key=%@", kBaseUrl,
-            query, @"", TMDB_API_KEY];
+    NSString *separator = @"?";
+    if ([query containsSubstring:@"?"]) {
+        separator = @"&";
+    }
+    NSString *nonEscaped = [NSString stringWithFormat:@"%@%@%@api_key=%@", kBaseUrl, query, separator, TMDB_API_KEY];
+    NSString *escaped = [nonEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [NSURL URLWithString:escaped];
 }
 
 @end

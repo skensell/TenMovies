@@ -2,5 +2,5 @@
 
 ## Setup
 From project root run
-    pod install
+    `pod install`.
 

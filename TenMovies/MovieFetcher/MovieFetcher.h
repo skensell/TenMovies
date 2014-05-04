@@ -10,6 +10,6 @@
 
 @interface MovieFetcher : NSObject
 
-+ (NSURL *)URLForDiscovery;
++ (NSString *)URLForDiscovery;
 
 @end

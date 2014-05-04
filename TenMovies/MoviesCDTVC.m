@@ -8,6 +8,10 @@
 
 #import "MoviesCDTVC.h"
 
+#import "HTTPClient.h"
+#import "Logging.h"
+#import "MovieFetcher.h"
+
 static NSString *kTableViewCellIdentifier = @"";
 
 @implementation MoviesCDTVC
@@ -15,6 +19,16 @@ static NSString *kTableViewCellIdentifier = @"";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchMovies];
+}
+
+- (void)fetchMovies {
+    [[HTTPClient sharedClient] GET:[MovieFetcher URLForDiscovery]
+                        parameters:nil
+                           success:^(NSURLSessionDataTask *task, id responseObject) {
+                               DEBUG(@"Successful request!");
+                           } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                               ERROR(@"Failed request");
+                           }];
 }
 
 

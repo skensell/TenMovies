@@ -16,13 +16,13 @@ static NSString *kDiscoveryQuery = @"discover/movie";
 @implementation MovieFetcher
 
 
-+ (NSURL *)URLForDiscovery {
-    return [self _URLFromQuery:kDiscoveryQuery];
++ (NSString *)URLForDiscovery {
+    return [self _URLStringFromQuery:kDiscoveryQuery];
 }
 
 #pragma mark - Private
 
-+ (NSURL *)_URLFromQuery:(NSString *)query {
++ (NSString *)_URLStringFromQuery:(NSString *)query {
     if ([query length] && [query hasPrefix:@"/"]) {
         query = [query substringFromIndex:1];
     }
@@ -31,8 +31,12 @@ static NSString *kDiscoveryQuery = @"discover/movie";
         separator = @"&";
     }
     NSString *nonEscaped = [NSString stringWithFormat:@"%@%@%@api_key=%@", kBaseUrl, query, separator, TMDB_API_KEY];
-    NSString *escaped = [nonEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    return [NSURL URLWithString:escaped];
+    return [nonEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
++ (NSURL *)_URLFromQuery:(NSString *)query {
+    NSString *asString = [self _URLStringFromQuery:query];
+    return [NSURL URLWithString:asString];
 }
 
 @end

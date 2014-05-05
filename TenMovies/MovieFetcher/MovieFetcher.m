@@ -12,13 +12,20 @@
 
 static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
 static NSString *kDiscoveryQuery = @"discover/movie";
+static NSString *kGenreListQuery = @"genre/list";
 
 @implementation MovieFetcher
 
 
++ (NSString *)URLForGenreList {
+    return [self _URLStringFromQuery:kGenreListQuery];
+}
+
 + (NSString *)URLForDiscovery {
     return [self _URLStringFromQuery:kDiscoveryQuery];
 }
+
+
 
 #pragma mark - Private
 

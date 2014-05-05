@@ -22,7 +22,7 @@ static NSString *kTableViewCellIdentifier = @"";
 }
 
 - (void)fetchMovies {
-    [[HTTPClient sharedClient] GET:[MovieFetcher URLForDiscovery]
+    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenreList]
                         parameters:nil
                            success:^(NSURLSessionDataTask *task, id responseObject) {
                                DEBUG(@"Successful request!");

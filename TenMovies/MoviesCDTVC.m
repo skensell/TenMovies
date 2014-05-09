@@ -22,9 +22,12 @@ static NSString *kTableViewCellIdentifier = @"";
 }
 
 - (void)fetchMovies {
-    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenreList]
+    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:TMDB_GENRE_ACTION]
                         parameters:nil
                            success:^(NSURLSessionDataTask *task, id responseObject) {
+                               NSDictionary *results = (NSDictionary *)responseObject;
+                               NSArray *titles = [results valueForKeyPath:@"results.title"];
+                               DEBUG(@"Titles = %@", titles);
                                DEBUG(@"Successful request!");
                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                ERROR(@"Failed request");

@@ -50,6 +50,7 @@ typedef enum {
 
 @interface MovieFetcher : NSObject
 
++ (NSString *)URLForGenre:(TMDBMovieGenre_t)genre;
 + (NSString *)URLForGenreList;
 + (NSString *)URLForDiscovery;
 

@@ -57,11 +57,7 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return self.movies.count;
-    } else {
-        return 0;
-    }
+    return (section == 0) ? self.movies.count : 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

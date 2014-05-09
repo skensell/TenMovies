@@ -30,10 +30,13 @@
                             <outlet property="delegate" destination="Y1q-YV-mqW" id="ydJ-iE-FTq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8F7-mT-JEr"/>
-                    <connections>
-                        <segue destination="h6X-Uy-GNc" kind="push" id="FQe-tG-Rjm"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="8F7-mT-JEr">
+                        <barButtonItem key="rightBarButtonItem" title="Customize" id="UZj-LL-ANb">
+                            <connections>
+                                <segue destination="h6X-Uy-GNc" kind="push" id="s6e-tE-iWy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-LD-n7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

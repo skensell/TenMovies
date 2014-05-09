@@ -30,6 +30,7 @@
 		766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EF5191591A0002DFDA3 /* TextHelper.m */; };
 		766D5F1F1916C19F002DFDA3 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1E1916C19F002DFDA3 /* HTTPClient.m */; };
 		76F25BB6191D2FF000B730EA /* MovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB5191D2FF000B730EA /* MovieList.m */; };
+		76F25BB9191D8C0E00B730EA /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB8191D8C0E00B730EA /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		766D5F1E1916C19F002DFDA3 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		76F25BB4191D2FF000B730EA /* MovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieList.h; sourceTree = "<group>"; };
 		76F25BB5191D2FF000B730EA /* MovieList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieList.m; sourceTree = "<group>"; };
+		76F25BB7191D8C0E00B730EA /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		76F25BB8191D8C0E00B730EA /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,8 @@
 				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
 				76F25BB4191D2FF000B730EA /* MovieList.h */,
 				76F25BB5191D2FF000B730EA /* MovieList.m */,
+				76F25BB7191D8C0E00B730EA /* Movie.h */,
+				76F25BB8191D8C0E00B730EA /* Movie.m */,
 				766D5F201916C4A1002DFDA3 /* Network */,
 				766D5EF719159316002DFDA3 /* Convenience */,
 				766D5EE0191585D3002DFDA3 /* MovieFetcher */,
@@ -372,6 +377,7 @@
 				766D5EEC19158D2D002DFDA3 /* NSArray+JSON.m in Sources */,
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
+				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,
 				766D5EDF191585C4002DFDA3 /* MovieFetcher.m in Sources */,

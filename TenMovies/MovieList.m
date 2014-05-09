@@ -10,34 +10,14 @@
 
 #import "HTTPClient.h"
 #import "Logging.h"
+#import "Movie.h"
 #import "MovieFetcher.h"
 
-static NSString *kTableViewCellIdentifier = @"";
-
-// TODO put this in a separate class
-
-@interface Movie : NSObject
-
-@property (nonatomic, strong) NSString * title;
-@property (nonatomic, strong) NSNumber * rating;
-@property (nonatomic, strong) NSString * genre;
-@property (nonatomic, strong) NSString * cast;
-@property (nonatomic, strong) NSString * thumbnailURL;
-@property (nonatomic, strong) NSData * thumbnail;
-@property (nonatomic, strong) NSString * summary;
-@property (nonatomic, strong) NSString * crew;
-@property (nonatomic, strong) NSNumber * duration;
-@property (nonatomic, strong) NSString * youtubeID;
-@end
-
-@implementation Movie
-
-@end
-
+static NSString *kTableViewCellIdentifier = @"MovieCell";
 
 @interface MovieList()
 
-@property (nonatomic,strong) NSArray *moviesByRating OF_TYPE(Movie);
+@property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
 
 @end
 
@@ -52,8 +32,8 @@ static NSString *kTableViewCellIdentifier = @"";
     [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:TMDB_GENRE_ACTION] parameters:nil
                            success:^(NSURLSessionDataTask *task, id responseObject) {
                                
-                               NSDictionary *results = (NSDictionary *)responseObject;
-                               [self populateMoviesByRating:results];
+                               NSArray *results = [(NSDictionary *)responseObject valueForKeyPath:@"results"];
+                               [self populateMovies:results];
                                [self.tableView reloadData];
 
                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -61,16 +41,37 @@ static NSString *kTableViewCellIdentifier = @"";
                            }];
 }
 
-- (void)populateMoviesByRating:(NSDictionary *)results {
+- (void)populateMovies:(NSArray *)results {
+    DEBUG(@"%d results", results.count);
     
+    self.movies = [Movie moviesFromTMDBResults:results];
 }
 
 #pragma mark - TableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
+    Movie *movie = [self movieAtIndexPath:indexPath];
+    cell.textLabel.text = movie.title;
     return cell;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return self.movies.count;
+    } else {
+        return 0;
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+#pragma mark - Private
+
+- (Movie *)movieAtIndexPath:(NSIndexPath *)indexPath {
+    return self.movies[indexPath.row];
+}
 
 @end

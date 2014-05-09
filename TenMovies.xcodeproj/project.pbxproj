@@ -28,13 +28,6 @@
 		766D5EEF19158D2D002DFDA3 /* NSString+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EE919158D2D002DFDA3 /* NSString+Contains.m */; };
 		766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EEB19158D2D002DFDA3 /* NSString+Trim.m */; };
 		766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EF5191591A0002DFDA3 /* TextHelper.m */; };
-		766D5EFC19164267002DFDA3 /* AppDelegate+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */; };
-		766D5F0019164BDD002DFDA3 /* AppDelegate+MovieFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EFF19164BDD002DFDA3 /* AppDelegate+MovieFetcher.m */; };
-		766D5F0E191680AD002DFDA3 /* TenMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F0C191680AD002DFDA3 /* TenMovies.xcdatamodeld */; };
-		766D5F1119168224002DFDA3 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1019168224002DFDA3 /* Movie.m */; };
-		766D5F1419168290002DFDA3 /* Movie+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1319168290002DFDA3 /* Movie+Create.m */; };
-		766D5F1719168501002DFDA3 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1619168501002DFDA3 /* CoreDataTableViewController.m */; };
-		766D5F1C191685C1002DFDA3 /* MoviesCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1B191685C1002DFDA3 /* MoviesCDTVC.m */; };
 		766D5F1F1916C19F002DFDA3 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1E1916C19F002DFDA3 /* HTTPClient.m */; };
 		76F25BB6191D2FF000B730EA /* MovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB5191D2FF000B730EA /* MovieList.m */; };
 /* End PBXBuildFile section */
@@ -84,21 +77,6 @@
 		766D5EF319158F29002DFDA3 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		766D5EF4191591A0002DFDA3 /* TextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextHelper.h; sourceTree = "<group>"; };
 		766D5EF5191591A0002DFDA3 /* TextHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextHelper.m; sourceTree = "<group>"; };
-		766D5EF9191641C5002DFDA3 /* AppDelegate_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_Private.h; sourceTree = "<group>"; };
-		766D5EFA19164267002DFDA3 /* AppDelegate+Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Database.h"; sourceTree = "<group>"; };
-		766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Database.m"; sourceTree = "<group>"; };
-		766D5EFD19164499002DFDA3 /* DatabaseAvailabilityNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAvailabilityNotification.h; sourceTree = "<group>"; };
-		766D5EFE19164BDD002DFDA3 /* AppDelegate+MovieFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+MovieFetcher.h"; sourceTree = "<group>"; };
-		766D5EFF19164BDD002DFDA3 /* AppDelegate+MovieFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+MovieFetcher.m"; sourceTree = "<group>"; };
-		766D5F0D191680AD002DFDA3 /* TenMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TenMovies.xcdatamodel; sourceTree = "<group>"; };
-		766D5F0F19168224002DFDA3 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		766D5F1019168224002DFDA3 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		766D5F1219168290002DFDA3 /* Movie+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Movie+Create.h"; sourceTree = "<group>"; };
-		766D5F1319168290002DFDA3 /* Movie+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movie+Create.m"; sourceTree = "<group>"; };
-		766D5F1519168501002DFDA3 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
-		766D5F1619168501002DFDA3 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
-		766D5F1A191685C1002DFDA3 /* MoviesCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesCDTVC.h; sourceTree = "<group>"; };
-		766D5F1B191685C1002DFDA3 /* MoviesCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesCDTVC.m; sourceTree = "<group>"; };
 		766D5F1D1916C19F002DFDA3 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		766D5F1E1916C19F002DFDA3 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		76F25BB4191D2FF000B730EA /* MovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieList.h; sourceTree = "<group>"; };
@@ -169,17 +147,9 @@
 				766D5EBA191567DC002DFDA3 /* Main.storyboard */,
 				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
 				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
-				766D5EF9191641C5002DFDA3 /* AppDelegate_Private.h */,
-				766D5EFA19164267002DFDA3 /* AppDelegate+Database.h */,
-				766D5EFB19164267002DFDA3 /* AppDelegate+Database.m */,
-				766D5EFD19164499002DFDA3 /* DatabaseAvailabilityNotification.h */,
-				766D5EFE19164BDD002DFDA3 /* AppDelegate+MovieFetcher.h */,
-				766D5EFF19164BDD002DFDA3 /* AppDelegate+MovieFetcher.m */,
 				76F25BB4191D2FF000B730EA /* MovieList.h */,
 				76F25BB5191D2FF000B730EA /* MovieList.m */,
 				766D5F201916C4A1002DFDA3 /* Network */,
-				766D5F1819168505002DFDA3 /* Controller */,
-				766D5F0B1916804C002DFDA3 /* Core Data Model */,
 				766D5EF719159316002DFDA3 /* Convenience */,
 				766D5EE0191585D3002DFDA3 /* MovieFetcher */,
 				766D5EAF191567DC002DFDA3 /* Supporting Files */,
@@ -253,37 +223,6 @@
 				766D5EF119158D34002DFDA3 /* Categories */,
 			);
 			name = Convenience;
-			sourceTree = "<group>";
-		};
-		766D5F0B1916804C002DFDA3 /* Core Data Model */ = {
-			isa = PBXGroup;
-			children = (
-				766D5F0C191680AD002DFDA3 /* TenMovies.xcdatamodeld */,
-				766D5F0F19168224002DFDA3 /* Movie.h */,
-				766D5F1019168224002DFDA3 /* Movie.m */,
-				766D5F1219168290002DFDA3 /* Movie+Create.h */,
-				766D5F1319168290002DFDA3 /* Movie+Create.m */,
-			);
-			name = "Core Data Model";
-			sourceTree = "<group>";
-		};
-		766D5F1819168505002DFDA3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				766D5F1919168517002DFDA3 /* CoreDataTVC */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		766D5F1919168517002DFDA3 /* CoreDataTVC */ = {
-			isa = PBXGroup;
-			children = (
-				766D5F1A191685C1002DFDA3 /* MoviesCDTVC.h */,
-				766D5F1B191685C1002DFDA3 /* MoviesCDTVC.m */,
-				766D5F1519168501002DFDA3 /* CoreDataTableViewController.h */,
-				766D5F1619168501002DFDA3 /* CoreDataTableViewController.m */,
-			);
-			name = CoreDataTVC;
 			sourceTree = "<group>";
 		};
 		766D5F201916C4A1002DFDA3 /* Network */ = {
@@ -427,24 +366,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				766D5F1419168290002DFDA3 /* Movie+Create.m in Sources */,
 				766D5EEF19158D2D002DFDA3 /* NSString+Contains.m in Sources */,
 				76F25BB6191D2FF000B730EA /* MovieList.m in Sources */,
 				766D5F1F1916C19F002DFDA3 /* HTTPClient.m in Sources */,
-				766D5EFC19164267002DFDA3 /* AppDelegate+Database.m in Sources */,
-				766D5F0019164BDD002DFDA3 /* AppDelegate+MovieFetcher.m in Sources */,
 				766D5EEC19158D2D002DFDA3 /* NSArray+JSON.m in Sources */,
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,
-				766D5F0E191680AD002DFDA3 /* TenMovies.xcdatamodeld in Sources */,
 				766D5EDF191585C4002DFDA3 /* MovieFetcher.m in Sources */,
 				766D5EED19158D2D002DFDA3 /* NSData+JSON.m in Sources */,
-				766D5F1119168224002DFDA3 /* Movie.m in Sources */,
 				766D5EB5191567DC002DFDA3 /* main.m in Sources */,
-				766D5F1719168501002DFDA3 /* CoreDataTableViewController.m in Sources */,
-				766D5F1C191685C1002DFDA3 /* MoviesCDTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,19 +595,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		766D5F0C191680AD002DFDA3 /* TenMovies.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				766D5F0D191680AD002DFDA3 /* TenMovies.xcdatamodel */,
-			);
-			currentVersion = 766D5F0D191680AD002DFDA3 /* TenMovies.xcdatamodel */;
-			path = TenMovies.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 766D5E9D191567DB002DFDA3 /* Project object */;
 }

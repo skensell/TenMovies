@@ -21,4 +21,6 @@
 #define WARNING(A, ...) NSLog(@"WARNING %@--%@ %@", THIS_CLASS, THIS_METHOD, [NSString stringWithFormat:A, ##__VA_ARGS__])
 #define ERROR(A, ...) NSLog(@"ERROR %@--%@ %@", THIS_CLASS, THIS_METHOD, [NSString stringWithFormat:A, ##__VA_ARGS__])
 
+#define OF_TYPE(A, ...)
+
 #endif

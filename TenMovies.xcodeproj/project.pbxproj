@@ -36,6 +36,7 @@
 		766D5F1719168501002DFDA3 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1619168501002DFDA3 /* CoreDataTableViewController.m */; };
 		766D5F1C191685C1002DFDA3 /* MoviesCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1B191685C1002DFDA3 /* MoviesCDTVC.m */; };
 		766D5F1F1916C19F002DFDA3 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1E1916C19F002DFDA3 /* HTTPClient.m */; };
+		76F25BB6191D2FF000B730EA /* MovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB5191D2FF000B730EA /* MovieList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		766D5F1B191685C1002DFDA3 /* MoviesCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesCDTVC.m; sourceTree = "<group>"; };
 		766D5F1D1916C19F002DFDA3 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		766D5F1E1916C19F002DFDA3 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
+		76F25BB4191D2FF000B730EA /* MovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieList.h; sourceTree = "<group>"; };
+		76F25BB5191D2FF000B730EA /* MovieList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieList.m; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +175,8 @@
 				766D5EFD19164499002DFDA3 /* DatabaseAvailabilityNotification.h */,
 				766D5EFE19164BDD002DFDA3 /* AppDelegate+MovieFetcher.h */,
 				766D5EFF19164BDD002DFDA3 /* AppDelegate+MovieFetcher.m */,
+				76F25BB4191D2FF000B730EA /* MovieList.h */,
+				76F25BB5191D2FF000B730EA /* MovieList.m */,
 				766D5F201916C4A1002DFDA3 /* Network */,
 				766D5F1819168505002DFDA3 /* Controller */,
 				766D5F0B1916804C002DFDA3 /* Core Data Model */,
@@ -424,6 +429,7 @@
 			files = (
 				766D5F1419168290002DFDA3 /* Movie+Create.m in Sources */,
 				766D5EEF19158D2D002DFDA3 /* NSString+Contains.m in Sources */,
+				76F25BB6191D2FF000B730EA /* MovieList.m in Sources */,
 				766D5F1F1916C19F002DFDA3 /* HTTPClient.m in Sources */,
 				766D5EFC19164267002DFDA3 /* AppDelegate+Database.m in Sources */,
 				766D5F0019164BDD002DFDA3 /* AppDelegate+MovieFetcher.m in Sources */,

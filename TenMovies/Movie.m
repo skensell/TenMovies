@@ -20,9 +20,27 @@
 
 + (Movie *)movieFromTMDBMovieDict:(NSDictionary *)movieDict {
     Movie *movie = [Movie new];
-    movie.title = movieDict[@"title"];
+    
+    movie.releaseDate = [self _dateFromString:movieDict[@"release_date"]];
+    movie.ID = movieDict[@"id"];
+    
     movie.popularity = movieDict[@"popularity"];
+    movie.voteAverage = movieDict[@"vote_average"];
+    
+    movie.posterPath = movieDict[@"poster_path"];
+    
+    movie.title = movieDict[@"title"];
+    
     return movie;
+}
+
+#pragma mark - Private
+
++ (NSDate *)_dateFromString:(NSString *)dateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    return [dateFormatter dateFromString:dateString];
 }
 
 @end

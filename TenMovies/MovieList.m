@@ -53,6 +53,7 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
     Movie *movie = [self movieAtIndexPath:indexPath];
     cell.textLabel.text = movie.title;
+    
     return cell;
 }
 

@@ -14,6 +14,7 @@
 #import "MovieFetcher.h"
 
 static NSString *kTableViewCellIdentifier = @"MovieCell";
+static CGFloat kMovieCellHeight = 150.0f;
 
 @interface MovieList()
 
@@ -25,15 +26,16 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchMovies];
+    [self getMoviesForGenre:TMDB_GENRE_ACTION];
 }
 
-- (void)fetchMovies {
-    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:TMDB_GENRE_ACTION] parameters:nil
+- (void)getMoviesForGenre:(TMDBMovieGenre_t)genre {
+    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:genre] parameters:nil
                            success:^(NSURLSessionDataTask *task, id responseObject) {
                                
                                NSArray *results = [(NSDictionary *)responseObject valueForKeyPath:@"results"];
                                [self populateMovies:results];
+                               
                                [self.tableView reloadData];
 
                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -53,7 +55,8 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
     Movie *movie = [self movieAtIndexPath:indexPath];
     cell.textLabel.text = movie.title;
-    
+    cell.detailTextLabel.numberOfLines = 0;
+    cell.detailTextLabel.text = [movie.voteAverage description];
     return cell;
 }
 
@@ -63,6 +66,10 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kMovieCellHeight;
 }
 
 #pragma mark - Private

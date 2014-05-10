@@ -11,9 +11,13 @@
 #import "NSString+Contains.h"
 
 static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
+
 static NSString *kDiscoveryQuery = @"discover/movie";
 static NSString *kGenreQuery = @"genre/%d/movies";
 static NSString *kGenreListQuery = @"genre/list";
+static NSString *kMovieQuery = @"movie/%d";
+static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos&include_image_language=en,null";
+
 
 @implementation MovieFetcher
 
@@ -29,19 +33,24 @@ static NSString *kGenreListQuery = @"genre/list";
     return [self _URLStringFromQuery:kDiscoveryQuery];
 }
 
++ (NSString *)URLForMovie:(NSUInteger)movieID {
+    return [self _URLStringFromQuery:kMovieQuery appendSuffix:kMovieQuerySuffix];
+}
 
 
 #pragma mark - Private
 
 + (NSString *)_URLStringFromQuery:(NSString *)query {
-    if ([query length] && [query hasPrefix:@"/"]) {
-        query = [query substringFromIndex:1];
-    }
-    NSString *separator = @"?";
-    if ([query containsSubstring:@"?"]) {
-        separator = @"&";
-    }
-    NSString *nonEscaped = [NSString stringWithFormat:@"%@%@%@api_key=%@", kBaseUrl, query, separator, TMDB_API_KEY];
+    return [self _URLStringFromQuery:query appendSuffix:nil];
+}
+
++ (NSString *)_URLStringFromQuery:(NSString *)query appendSuffix:(NSString *)_suffix {
+    if ([query length] && [query hasPrefix:@"/"]) query = [query substringFromIndex:1];
+    
+    NSString *separator = [query containsSubstring:@"?"] ? @"&" : @"?";
+    NSString *suffix = _suffix ? _suffix : @"" ;
+    
+    NSString *nonEscaped = [NSString stringWithFormat:@"%@%@%@api_key=%@%@", kBaseUrl, query, separator, TMDB_API_KEY, suffix];
     return [nonEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 

@@ -53,5 +53,6 @@ typedef enum {
 + (NSString *)URLForGenre:(TMDBMovieGenre_t)genre;
 + (NSString *)URLForGenreList;
 + (NSString *)URLForDiscovery;
++ (NSString *)URLForMovie:(NSUInteger)movieID;
 
 @end

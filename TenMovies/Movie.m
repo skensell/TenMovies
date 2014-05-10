@@ -34,6 +34,11 @@
     return movie;
 }
 
+- (NSString *)description {
+    NSArray *props = @[self.releaseDate, self.ID, self.popularity, self.voteAverage, self.posterPath, self.title];
+    return [props description];
+}
+
 #pragma mark - Private
 
 + (NSDate *)_dateFromString:(NSString *)dateString {

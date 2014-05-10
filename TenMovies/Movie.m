@@ -8,6 +8,8 @@
 
 #import "Movie.h"
 
+#import "MovieFetcher.h"
+
 @implementation Movie
 
 + (NSArray *)moviesFromTMDBResults:(NSArray *)results {
@@ -21,15 +23,15 @@
 + (Movie *)movieFromTMDBMovieDict:(NSDictionary *)movieDict {
     Movie *movie = [Movie new];
     
-    movie.releaseDate = [self _dateFromString:movieDict[@"release_date"]];
-    movie.ID = movieDict[@"id"];
+    movie.releaseDate = [self _dateFromString:movieDict[TMDB_RELEASE_DATE_KEY_PATH]];
+    movie.ID = movieDict[TMDB_MOVIE_ID_KEY_PATH];
     
-    movie.popularity = movieDict[@"popularity"];
-    movie.voteAverage = movieDict[@"vote_average"];
+    movie.popularity = movieDict[TMDB_POPULARITY_KEY_PATH];
+    movie.voteAverage = movieDict[TMDB_VOTE_AVERAGE_KEY_PATH];
     
-    movie.posterPath = movieDict[@"poster_path"];
+    movie.posterPath = movieDict[TMDB_POSTER_PATH_KEY_PATH];
     
-    movie.title = movieDict[@"title"];
+    movie.title = movieDict[TMDB_TITLE_KEY_PATH];
     
     return movie;
 }

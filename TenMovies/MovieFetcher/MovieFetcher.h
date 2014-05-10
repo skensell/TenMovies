@@ -46,6 +46,12 @@ typedef enum {
     TMDB_GENRE_WESTERN = 37
 } TMDBMovieGenre_t;
 
+#define TMDB_MOVIE_ID_KEY_PATH @"id"
+#define TMDB_RELEASE_DATE_KEY_PATH @"release_date"
+#define TMDB_POPULARITY_KEY_PATH @"popularity"
+#define TMDB_VOTE_AVERAGE_KEY_PATH @"vote_average"
+#define TMDB_POSTER_PATH_KEY_PATH @"poster_path"
+#define TMDB_TITLE_KEY_PATH @"title"
 
 
 @interface MovieFetcher : NSObject

@@ -8,6 +8,8 @@
 
 #import "MovieList.h"
 
+#import <ReactiveCocoa.h>
+
 #import "HTTPClient.h"
 #import "Logging.h"
 #import "Movie.h"
@@ -26,21 +28,48 @@ static CGFloat kMovieCellHeight = 150.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getMoviesForGenre:TMDB_GENRE_ACTION];
+
+    [[self movieIDsForGenre:TMDB_GENRE_ACTION] subscribeNext:^(NSArray *movieIDs) {
+        [[self moviesFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieInfos) {
+            self.movies = [Movie moviesFromTMDBResults:[movieInfos allObjects]];
+            [self.tableView reloadData];
+        }];
+    }];
 }
 
-- (void)getMoviesForGenre:(TMDBMovieGenre_t)genre {
+- (RACSignal *OF_TYPE(NSArray *OF_TYPE(NSNumber)))movieIDsForGenre:(TMDBMovieGenre_t)genre {
+    RACSubject *subject = [RACSubject subject];
     [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:genre] parameters:nil
-                           success:^(NSURLSessionDataTask *task, id responseObject) {
+                           success:^(id task, id responseObject) {
+                               NSArray *_movieIDs = [responseObject valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
+                               [subject sendNext:_movieIDs];
                                
-                               NSArray *results = [(NSDictionary *)responseObject valueForKeyPath:@"results"];
-                               [self populateMovies:results];
-                               
-                               [self.tableView reloadData];
-
-                           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                               ERROR(@"Failed request");
+                           } failure:^(id task, NSError *error) {
+                               ERROR(@"Failed request: %@", [error localizedDescription]);
+                               [subject sendError:nil];
                            }];
+    return subject;
+}
+
+- (RACSignal *OF_TYPE(NSDictionary))movieInfoFromMovieID:(NSNumber *)movieID {
+    RACSubject *subject = [RACSubject subject];
+    [[HTTPClient sharedClient] GET:[MovieFetcher URLForMovie:movieID] parameters:nil
+                           success:^(id task, id responseObject) {
+                               [subject sendNext:responseObject];
+                           } failure:^(id task, NSError *error) {
+                               ERROR(@"Failed request: %@", [error localizedDescription]);
+                               [subject sendError:nil];
+                           }];
+    
+    return subject;
+}
+
+- (RACSignal *)moviesFromMovieIDs:(NSArray *)movieIDs {
+    RACSequence *movieInfoSignals = [movieIDs.rac_sequence map:^id(NSNumber *movieID) {
+        return [self movieInfoFromMovieID:movieID];
+    }];
+    RACSignal *combinedMovieInfoSignal = [RACSignal combineLatest:movieInfoSignals];
+    return combinedMovieInfoSignal;
 }
 
 - (void)populateMovies:(NSArray *)results {

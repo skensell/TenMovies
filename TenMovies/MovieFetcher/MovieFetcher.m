@@ -15,7 +15,7 @@ static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
 static NSString *kDiscoveryQuery = @"discover/movie";
 static NSString *kGenreQuery = @"genre/%d/movies";
 static NSString *kGenreListQuery = @"genre/list";
-static NSString *kMovieQuery = @"movie/%d";
+static NSString *kMovieQuery = @"movie/%@";
 static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos&include_image_language=en,null";
 
 
@@ -33,8 +33,9 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
     return [self _URLStringFromQuery:kDiscoveryQuery];
 }
 
-+ (NSString *)URLForMovie:(NSUInteger)movieID {
-    return [self _URLStringFromQuery:kMovieQuery appendSuffix:kMovieQuerySuffix];
++ (NSString *)URLForMovie:(NSNumber *)movieID {
+    NSString *queryString = [NSString stringWithFormat:kMovieQuery, movieID];
+    return [self _URLStringFromQuery:queryString appendSuffix:nil];
 }
 
 

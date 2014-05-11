@@ -1,13 +1,14 @@
 //
-//  MovieFetcher.m
+//  TMDB.m
 //  TenMovies
 //
 //  Created by Scott Kensell on 5/3/14.
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "MovieFetcher.h"
-#import "MovieFetcherAPIKey.h"
+#import "TMDB.h"
+
+#import "TMDBAPIKey.h"
 #import "NSString+Contains.h"
 
 static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
@@ -19,7 +20,7 @@ static NSString *kMovieQuery = @"movie/%@";
 static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos&include_image_language=en,null";
 
 
-@implementation MovieFetcher
+@implementation TMDB
 
 + (NSString *)URLForGenre:(TMDBMovieGenre_t)genre {
     return [self _URLStringFromQuery:[NSString stringWithFormat:kGenreQuery, genre]];

@@ -23,6 +23,4 @@
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) NSString * youtubeID;
 
-+ (NSArray *)moviesFromTMDBResults:(NSArray *)results;
-
 @end

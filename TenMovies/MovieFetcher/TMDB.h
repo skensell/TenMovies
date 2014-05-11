@@ -1,5 +1,5 @@
 //
-//  MovieFetcher.h
+//  TMDB.h
 //  TenMovies
 //
 //  Created by Scott Kensell on 5/3/14.
@@ -56,7 +56,7 @@ typedef enum {
 #define TMDB_TITLE_KEY_PATH @"title"
 
 
-@interface MovieFetcher : NSObject
+@interface TMDB : NSObject
 
 + (NSString *)URLForGenre:(TMDBMovieGenre_t)genre;
 + (NSString *)URLForGenreList;

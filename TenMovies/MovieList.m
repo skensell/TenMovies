@@ -12,8 +12,8 @@
 
 #import "HTTPClient.h"
 #import "Logging.h"
-#import "Movie.h"
-#import "MovieFetcher.h"
+#import "Movie+TMDB.h"
+#import "TMDB+Movie.h"
 
 static NSString *kTableViewCellIdentifier = @"MovieCell";
 static CGFloat kMovieCellHeight = 150.0f;
@@ -29,53 +29,12 @@ static CGFloat kMovieCellHeight = 150.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[self movieIDsForGenre:TMDB_GENRE_ACTION] subscribeNext:^(NSArray *movieIDs) {
-        [[self moviesFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieInfos) {
-            self.movies = [Movie moviesFromTMDBResults:[movieInfos allObjects]];
+    [[TMDB movieIDsFromGenre:TMDB_GENRE_ACTION] subscribeNext:^(NSArray *movieIDs) {
+        [[TMDB movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
+            self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
             [self.tableView reloadData];
         }];
     }];
-}
-
-- (RACSignal *OF_TYPE(NSArray *OF_TYPE(NSNumber)))movieIDsForGenre:(TMDBMovieGenre_t)genre {
-    RACSubject *subject = [RACSubject subject];
-    [[HTTPClient sharedClient] GET:[MovieFetcher URLForGenre:genre] parameters:nil
-                           success:^(id task, id responseObject) {
-                               NSArray *_movieIDs = [responseObject valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
-                               [subject sendNext:_movieIDs];
-                               
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
-                               [subject sendError:nil];
-                           }];
-    return subject;
-}
-
-- (RACSignal *OF_TYPE(NSDictionary))movieInfoFromMovieID:(NSNumber *)movieID {
-    RACSubject *subject = [RACSubject subject];
-    [[HTTPClient sharedClient] GET:[MovieFetcher URLForMovie:movieID] parameters:nil
-                           success:^(id task, id responseObject) {
-                               [subject sendNext:responseObject];
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
-                               [subject sendError:nil];
-                           }];
-    
-    return subject;
-}
-
-- (RACSignal *)moviesFromMovieIDs:(NSArray *)movieIDs {
-    RACSequence *movieInfoSignals = [movieIDs.rac_sequence map:^id(NSNumber *movieID) {
-        return [self movieInfoFromMovieID:movieID];
-    }];
-    RACSignal *combinedMovieInfoSignal = [RACSignal combineLatest:movieInfoSignals];
-    return combinedMovieInfoSignal;
-}
-
-- (void)populateMovies:(NSArray *)results {
-    DEBUG(@"%d results", results.count);
-    
-    self.movies = [Movie moviesFromTMDBResults:results];
 }
 
 #pragma mark - TableViewDataSource

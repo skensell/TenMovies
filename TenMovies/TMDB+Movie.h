@@ -14,7 +14,10 @@
 
 @interface TMDB (Movie)
 
-+ (RACSignal *OF_TYPE(NSArray))movieIDsFromGenre:(TMDBMovieGenre_t)genre;
+// sends next when the one request finishes
++ (RACSignal *OF_TYPE(NSArray *))movieIDsFromGenre:(TMDBMovieGenre_t)genre;
+
+// sends next only after all movie requests (about 20) have finished
 + (RACSignal *OF_TYPE(RACTuple))movieDictsFromMovieIDs:(NSArray *)movieIDs;
 
 @end

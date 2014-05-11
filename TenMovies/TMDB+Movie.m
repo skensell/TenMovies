@@ -17,31 +17,10 @@
 
 @implementation TMDB (Movie)
 
-+ (RACSignal *OF_TYPE(NSArray))movieIDsFromGenre:(TMDBMovieGenre_t)genre {
-    RACSubject *subject = [RACSubject subject];
-    [[HTTPClient sharedClient] GET:[TMDB URLForGenre:genre] parameters:nil
-                           success:^(id task, id responseObject) {
-                               NSArray *_movieIDs = [responseObject valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
-                               [subject sendNext:_movieIDs];
-                               
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
-                               [subject sendError:nil];
-                           }];
-    return subject;
-}
-
-+ (RACSignal *OF_TYPE(NSDictionary))movieInfoFromMovieID:(NSNumber *)movieID {
-    RACSubject *subject = [RACSubject subject];
-    [[HTTPClient sharedClient] GET:[TMDB URLForMovie:movieID] parameters:nil
-                           success:^(id task, id responseObject) {
-                               [subject sendNext:responseObject];
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
-                               [subject sendError:nil];
-                           }];
-    
-    return subject;
++ (RACSignal *OF_TYPE(NSArray *))movieIDsFromGenre:(TMDBMovieGenre_t)genre {
+    return [[self moviesInGenre:genre] map:^NSArray *(id response) {
+        return [response valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
+    }];
 }
 
 + (RACSignal *)movieDictsFromMovieIDs:(NSArray *)movieIDs {
@@ -50,6 +29,29 @@
     }];
     RACSignal *combinedMovieInfoSignal = [RACSignal combineLatest:movieInfoSignals];
     return combinedMovieInfoSignal;
+}
+
+#pragma mark - Private
+
++ (RACSignal *OF_TYPE(NSDictionary *))moviesInGenre:(TMDBMovieGenre_t)genre {
+    return [self GET:[TMDB URLForGenre:genre]];
+}
+
++ (RACSignal *OF_TYPE(NSDictionary *))movieInfoFromMovieID:(NSNumber *)movieID {
+    return [self GET:[TMDB URLForMovie:movieID]];
+}
+
++ (RACSignal *)GET:(NSString *)url {
+    RACSubject *subject = [RACSubject subject];
+    [[HTTPClient sharedClient] GET:url parameters:nil
+                           success:^(id task, id responseObject) {
+                               [subject sendNext:responseObject];
+                           } failure:^(id task, NSError *error) {
+                               ERROR(@"Failed request: %@", [error localizedDescription]);
+                               [subject sendError:error];
+                           }];
+    
+    return subject;
 }
 
 @end

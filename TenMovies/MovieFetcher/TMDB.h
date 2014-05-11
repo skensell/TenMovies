@@ -54,6 +54,11 @@ typedef enum {
 #define TMDB_VOTE_AVERAGE_KEY_PATH @"vote_average"
 #define TMDB_POSTER_PATH_KEY_PATH @"poster_path"
 #define TMDB_TITLE_KEY_PATH @"title"
+#define TMDB_RUNTIME_KEY_PATH @"runtime"
+#define TMDB_VIDEOS_KEY_PATH @"videos.results"
+#define TMDB_CAST_KEY_PATH @"credits.cast"
+#define TMDB_CREW_KEY_PATH @"credits.crew"
+
 
 
 @interface TMDB : NSObject
@@ -62,5 +67,7 @@ typedef enum {
 + (NSString *)URLForGenreList;
 + (NSString *)URLForDiscovery;
 + (NSString *)URLForMovie:(NSNumber *)movieID;
+
++ (NSString *)youTubeTrailerIDFromVideosArray:(NSArray *)videos;
 
 @end

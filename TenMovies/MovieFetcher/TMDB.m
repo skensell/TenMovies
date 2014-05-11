@@ -36,7 +36,17 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
 
 + (NSString *)URLForMovie:(NSNumber *)movieID {
     NSString *queryString = [NSString stringWithFormat:kMovieQuery, movieID];
-    return [self _URLStringFromQuery:queryString appendSuffix:nil];
+    return [self _URLStringFromQuery:queryString appendSuffix:kMovieQuerySuffix];
+}
+
++ (NSString *)youTubeTrailerIDFromVideosArray:(NSArray *)videos {
+    for (NSDictionary *video in videos) {
+        if ([[video[@"type"] lowercaseString] isEqualToString:@"trailer"] &&
+            [[video[@"site"] lowercaseString] isEqualToString:@"youtube"]) {
+            return video[@"key"];
+        }
+    }
+    return nil;
 }
 
 

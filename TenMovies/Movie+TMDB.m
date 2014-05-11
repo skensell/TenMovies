@@ -23,15 +23,21 @@
 + (Movie *)movieFromTMDBMovieDict:(NSDictionary *)movieDict {
     Movie *movie = [Movie new];
     
+    movie.cast = [movieDict valueForKeyPath:TMDB_CAST_KEY_PATH];
+    movie.crew = [movieDict valueForKeyPath:TMDB_CREW_KEY_PATH];
+    
     movie.releaseDate = [self _dateFromString:movieDict[TMDB_RELEASE_DATE_KEY_PATH]];
     movie.ID = movieDict[TMDB_MOVIE_ID_KEY_PATH];
     
     movie.popularity = movieDict[TMDB_POPULARITY_KEY_PATH];
     movie.voteAverage = movieDict[TMDB_VOTE_AVERAGE_KEY_PATH];
+    movie.runtime = [movieDict valueForKeyPath:TMDB_RUNTIME_KEY_PATH];
     
     movie.posterPath = movieDict[TMDB_POSTER_PATH_KEY_PATH];
     
     movie.title = movieDict[TMDB_TITLE_KEY_PATH];
+    
+    movie.youtubeID = [TMDB youTubeTrailerIDFromVideosArray:[movieDict valueForKeyPath:TMDB_VIDEOS_KEY_PATH]];
     
     return movie;
 }

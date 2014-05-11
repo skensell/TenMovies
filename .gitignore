@@ -2,6 +2,7 @@
 # below are my personal additions:
 Pods/
 TenMovies.xcworkspace/
+temp
 
 #########################
 # .gitignore file for Xcode4 / OS X Source projects

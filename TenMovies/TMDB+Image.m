@@ -19,19 +19,28 @@ static NSArray *posterSizes = nil;
 @implementation TMDB (Image)
 
 + (RACSignal *OF_TYPE(NSData))thumbnailImageForPosterPath:(NSString *)posterPath {
-    RACSignal *configSignal;
-    if (!baseImageURL || !posterSizes) {
-        configSignal = [HTTPClient GET:[TMDB URLForConfiguration]];
-        [configSignal subscribeNext:^(NSDictionary *response) {
+    //[self configurationSignal];
+    return nil;
+}
+
+#pragma mark - Private
+
++ (RACSignal *)configurationSignal {
+    RACSubject *subject = [RACSubject subject];
+    if ((!baseImageURL || !posterSizes) && [HTTPClient hasRequestInQueueWithURL:[TMDB URLForConfiguration]] == NO) {
+        [[HTTPClient GET:[TMDB URLForConfiguration]] subscribeNext:^(NSDictionary *response) {
             baseImageURL = [response valueForKeyPath:TMDB_IMAGE_BASE_URL_KEY_PATH];
             posterSizes = [response valueForKeyPath:TMDB_IMAGE_POSTER_SIZES_KEY_PATH];
-            DEBUG(@"succesful request");
-            
+            [subject sendNext:@[baseImageURL, posterSizes]];
         }];
+    } else if (baseImageURL && posterSizes) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [subject sendNext:@[baseImageURL, posterSizes]];
+        });
     } else {
-        
+        ERROR(@"Configuration request may have failed.");
     }
-    return nil;
+    return subject;
 }
 
 @end

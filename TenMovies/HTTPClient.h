@@ -11,4 +11,6 @@
 
 + (instancetype)sharedClient;
 
++ (BOOL)hasRequestInQueueWithURL:(NSString *)url;
+
 @end

@@ -33,6 +33,8 @@
 		76F25BB9191D8C0E00B730EA /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB8191D8C0E00B730EA /* Movie.m */; };
 		76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBB191FD91500B730EA /* Movie+TMDB.m */; };
 		76F25BC0191FDC6200B730EA /* TMDB+Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBF191FDC6200B730EA /* TMDB+Movie.m */; };
+		76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BC219209E5F00B730EA /* TMDB+Image.m */; };
+		76F25BC61920A00A00B730EA /* HTTPClient+RAC.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,10 @@
 		76F25BBB191FD91500B730EA /* Movie+TMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movie+TMDB.m"; sourceTree = "<group>"; };
 		76F25BBE191FDC6200B730EA /* TMDB+Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMDB+Movie.h"; sourceTree = "<group>"; };
 		76F25BBF191FDC6200B730EA /* TMDB+Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDB+Movie.m"; sourceTree = "<group>"; };
+		76F25BC119209E5F00B730EA /* TMDB+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMDB+Image.h"; sourceTree = "<group>"; };
+		76F25BC219209E5F00B730EA /* TMDB+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDB+Image.m"; sourceTree = "<group>"; };
+		76F25BC41920A00A00B730EA /* HTTPClient+RAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTPClient+RAC.h"; sourceTree = "<group>"; };
+		76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTTPClient+RAC.m"; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +211,8 @@
 				766D5EDE191585C4002DFDA3 /* TMDB.m */,
 				76F25BBE191FDC6200B730EA /* TMDB+Movie.h */,
 				76F25BBF191FDC6200B730EA /* TMDB+Movie.m */,
+				76F25BC119209E5F00B730EA /* TMDB+Image.h */,
+				76F25BC219209E5F00B730EA /* TMDB+Image.m */,
 			);
 			name = TMDB;
 			sourceTree = "<group>";
@@ -242,6 +250,8 @@
 			children = (
 				766D5F1D1916C19F002DFDA3 /* HTTPClient.h */,
 				766D5F1E1916C19F002DFDA3 /* HTTPClient.m */,
+				76F25BC41920A00A00B730EA /* HTTPClient+RAC.h */,
+				76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */,
 			);
 			name = HTTPClient;
 			sourceTree = "<group>";
@@ -396,9 +406,11 @@
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
+				76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,
 				766D5EDF191585C4002DFDA3 /* TMDB.m in Sources */,
+				76F25BC61920A00A00B730EA /* HTTPClient+RAC.m in Sources */,
 				766D5EED19158D2D002DFDA3 /* NSData+JSON.m in Sources */,
 				76F25BC0191FDC6200B730EA /* TMDB+Movie.m in Sources */,
 				76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */,

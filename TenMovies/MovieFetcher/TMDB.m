@@ -13,6 +13,7 @@
 
 static NSString *kBaseUrl = @"http://api.themoviedb.org/3/";
 
+static NSString *kConfigurationQuery = @"configuration";
 static NSString *kDiscoveryQuery = @"discover/movie";
 static NSString *kGenreQuery = @"genre/%d/movies";
 static NSString *kGenreListQuery = @"genre/list";
@@ -21,6 +22,10 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
 
 
 @implementation TMDB
+
++ (NSString *)URLForConfiguration {
+    return [self _URLStringFromQuery:kConfigurationQuery];
+}
 
 + (NSString *)URLForGenre:(TMDBMovieGenre_t)genre {
     return [self _URLStringFromQuery:[NSString stringWithFormat:kGenreQuery, genre]];

@@ -10,7 +10,7 @@
 
 #import <ReactiveCocoa.h>
 
-#import "HTTPClient.h"
+#import "HTTPClient+RAC.h"
 #import "Logging.h"
 #import "Movie.h"
 #import "Movie+TMDB.h"
@@ -34,24 +34,11 @@
 #pragma mark - Private
 
 + (RACSignal *OF_TYPE(NSDictionary *))moviesInGenre:(TMDBMovieGenre_t)genre {
-    return [self GET:[TMDB URLForGenre:genre]];
+    return [HTTPClient GET:[TMDB URLForGenre:genre]];
 }
 
 + (RACSignal *OF_TYPE(NSDictionary *))movieInfoFromMovieID:(NSNumber *)movieID {
-    return [self GET:[TMDB URLForMovie:movieID]];
-}
-
-+ (RACSignal *)GET:(NSString *)url {
-    RACSubject *subject = [RACSubject subject];
-    [[HTTPClient sharedClient] GET:url parameters:nil
-                           success:^(id task, id responseObject) {
-                               [subject sendNext:responseObject];
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
-                               [subject sendError:error];
-                           }];
-    
-    return subject;
+    return [HTTPClient GET:[TMDB URLForMovie:movieID]];
 }
 
 @end

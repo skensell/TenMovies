@@ -14,6 +14,7 @@
 #import "Logging.h"
 #import "Movie+TMDB.h"
 #import "TMDB+Movie.h"
+#import "TMDB+Image.h"
 
 static NSString *kTableViewCellIdentifier = @"MovieCell";
 static CGFloat kMovieCellHeight = 150.0f;
@@ -45,6 +46,11 @@ static CGFloat kMovieCellHeight = 150.0f;
     cell.textLabel.text = movie.title;
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.text = [movie.voteAverage description];
+    if (movie.thumbnail) {
+        cell.imageView.image = [UIImage imageWithData:movie.thumbnail];
+    } else {
+        [TMDB thumbnailImageForPosterPath:movie.posterPath];
+    }
     return cell;
 }
 

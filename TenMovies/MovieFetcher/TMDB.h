@@ -59,10 +59,13 @@ typedef enum {
 #define TMDB_CAST_KEY_PATH @"credits.cast"
 #define TMDB_CREW_KEY_PATH @"credits.crew"
 
+#define TMDB_IMAGE_BASE_URL_KEY_PATH @"images.base_url"
+#define TMDB_IMAGE_POSTER_SIZES_KEY_PATH @"images.poster_sizes"
 
 
 @interface TMDB : NSObject
 
++ (NSString *)URLForConfiguration;
 + (NSString *)URLForGenre:(TMDBMovieGenre_t)genre;
 + (NSString *)URLForGenreList;
 + (NSString *)URLForDiscovery;

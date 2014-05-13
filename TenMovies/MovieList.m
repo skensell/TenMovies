@@ -21,10 +21,7 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
 static CGFloat kMovieCellHeight = 200.0f;
 
 @interface MovieList()
-
-@property (nonatomic,strong) UIActivityIndicatorView *activity;
 @property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
-
 @end
 
 @implementation MovieList
@@ -47,17 +44,6 @@ static CGFloat kMovieCellHeight = 200.0f;
             [self.tableView reloadData];
         }];
     }];
-}
-
-- (UIActivityIndicatorView *)activity {
-    if (!_activity) {
-        _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _activity.center = self.tableView.center;//CGPointMake(self.tableView.frame.size.height/2, self.tableView.frame.size.height/2);
-        _activity.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(2.0f, 2.0f),CGAffineTransformMakeTranslation(0, -100.0f));
-        _activity.hidesWhenStopped = YES;
-        [self.view addSubview:_activity];
-    }
-    return _activity;
 }
 
 #pragma mark - TableViewDataSource

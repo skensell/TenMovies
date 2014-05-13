@@ -10,6 +10,7 @@
 
 #import <ReactiveCocoa.h>
 
+#import "ActivityView.h"
 #import "HTTPClient.h"
 #import "Logging.h"
 #import "Movie+TMDB.h"
@@ -17,10 +18,11 @@
 #import "TMDB+Image.h"
 
 static NSString *kTableViewCellIdentifier = @"MovieCell";
-static CGFloat kMovieCellHeight = 150.0f;
+static CGFloat kMovieCellHeight = 200.0f;
 
 @interface MovieList()
 
+@property (nonatomic,strong) UIActivityIndicatorView *activity;
 @property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
 
 @end
@@ -29,27 +31,50 @@ static CGFloat kMovieCellHeight = 150.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self _downloadMoviesForGenre:TMDB_GENRE_ACTION];
+}
 
-    [[TMDB movieIDsFromGenre:TMDB_GENRE_ACTION] subscribeNext:^(NSArray *movieIDs) {
+- (void)_downloadMoviesForGenre:(TMDBMovieGenre_t)genre {
+    ActivityView *activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor] activityStyle:UIActivityIndicatorViewStyleGray];
+    [self.tableView addSubview:activityView];
+    [activityView startAnimating];
+    
+    [[TMDB movieIDsFromGenre:genre] subscribeNext:^(NSArray *movieIDs) {
         [[TMDB movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
             self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
+            [activityView stopAnimating];
             [self.tableView reloadData];
         }];
     }];
 }
 
+- (UIActivityIndicatorView *)activity {
+    if (!_activity) {
+        _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _activity.center = self.tableView.center;//CGPointMake(self.tableView.frame.size.height/2, self.tableView.frame.size.height/2);
+        _activity.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(2.0f, 2.0f),CGAffineTransformMakeTranslation(0, -100.0f));
+        _activity.hidesWhenStopped = YES;
+        [self.view addSubview:_activity];
+    }
+    return _activity;
+}
+
 #pragma mark - TableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
     Movie *movie = [self movieAtIndexPath:indexPath];
     cell.textLabel.text = movie.title;
-    cell.detailTextLabel.numberOfLines = 0;
-    cell.detailTextLabel.text = [movie.voteAverage description];
+//    cell.detailTextLabel.numberOfLines = 0;
+//    cell.detailTextLabel.text = [movie.voteAverage description];
     if (movie.thumbnail) {
         cell.imageView.image = [UIImage imageWithData:movie.thumbnail];
     } else {
-        [TMDB thumbnailImageForPosterPath:movie.posterPath];
+        [[TMDB thumbnailImageForPosterPath:movie.posterPath] subscribeNext:^(UIImage *image) {
+            movie.thumbnail = UIImageJPEGRepresentation(image, 1.0);
+            [tableView reloadData];
+        }];
     }
     return cell;
 }

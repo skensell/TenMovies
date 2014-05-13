@@ -5,6 +5,7 @@
 #import "HTTPClient.h"
 
 #import <AFHTTPRequestOperation.h>
+//#import <AFURLResponseSerialization.h>
 
 @implementation HTTPClient
 
@@ -13,6 +14,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedClient = [[HTTPClient alloc] initWithBaseURL:nil];
+        _sharedClient.responseSerializer =
+        [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[
+            [AFJSONResponseSerializer serializerWithReadingOptions:0],
+            [AFImageResponseSerializer serializer]
+        ]];
     });
     
     return _sharedClient;

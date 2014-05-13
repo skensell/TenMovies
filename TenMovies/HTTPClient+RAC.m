@@ -20,7 +20,7 @@
                            success:^(id task, id responseObject) {
                                [subject sendNext:responseObject];
                            } failure:^(id task, NSError *error) {
-                               ERROR(@"Failed request: %@", [error localizedDescription]);
+                               ERROR(@"%@ %@", url, [error localizedDescription]);
                                [subject sendError:error];
                            }];
     

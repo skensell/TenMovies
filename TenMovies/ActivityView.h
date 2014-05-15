@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-// To use, simply add as a subview
-// After startAnimating is called, it will become visible, covering it's parent view and animate
-// After stopAnimating it will be hidden
+// Add as a subview to something
+// call startAnimating
+// call stopAnimating
+// remove from superview
 
 
 @interface ActivityView : UIView
 
-// TODO: add a label
-- (instancetype)initWithBackgroundColor:(UIColor *)backgroundColor activityStyle:(UIActivityIndicatorViewStyle)activityStyle;
+
+- (instancetype)initWithBackgroundColor:(UIColor *)backgroundcolor
+                                  style:(UIActivityIndicatorViewStyle)activityStyle
+                                  scale:(CGFloat)scale
+                                  color:(UIColor *)tintColor
+                            coverScreen:(BOOL)coverScreen
+                      isInNavController:(BOOL)isInNavController
+                              labelText:(NSString *)text;
+
 
 - (void)startAnimating;
 - (void)stopAnimating;

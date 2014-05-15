@@ -28,12 +28,17 @@ static CGFloat kMovieCellHeight = 200.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self _downloadMoviesForGenre:TMDB_GENRE_ACTION];
 }
 
 - (void)_downloadMoviesForGenre:(TMDBMovieGenre_t)genre {
-    ActivityView *activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor] activityStyle:UIActivityIndicatorViewStyleGray];
+    ActivityView *activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor]
+                                                                         style:UIActivityIndicatorViewStyleGray
+                                                                         scale:2.0f
+                                                                         color:[UIColor blackColor]
+                                                                   coverScreen:YES
+                                                             isInNavController:YES
+                                                                     labelText:@"Downloading movies..."];
     [self.tableView addSubview:activityView];
     [activityView startAnimating];
     

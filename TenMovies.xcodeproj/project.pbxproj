@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4CE40D8EC728401E845304BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA09992072C4AFC902F2C9E /* libPods.a */; };
 		7660EEC51922ADA500DED9ED /* ActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC41922ADA500DED9ED /* ActivityView.m */; };
+		7660EEC81925676000DED9ED /* SKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC71925676000DED9ED /* SKHTTPClient.m */; };
 		766D5EA9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
 		766D5EAB191567DC002DFDA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EAA191567DC002DFDA3 /* CoreGraphics.framework */; };
 		766D5EAD191567DC002DFDA3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EAC191567DC002DFDA3 /* UIKit.framework */; };
@@ -35,7 +36,6 @@
 		76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBB191FD91500B730EA /* Movie+TMDB.m */; };
 		76F25BC0191FDC6200B730EA /* TMDB+Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBF191FDC6200B730EA /* TMDB+Movie.m */; };
 		76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BC219209E5F00B730EA /* TMDB+Image.m */; };
-		76F25BC61920A00A00B730EA /* HTTPClient+RAC.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,8 @@
 		1AA09992072C4AFC902F2C9E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7660EEC31922ADA500DED9ED /* ActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityView.h; sourceTree = "<group>"; };
 		7660EEC41922ADA500DED9ED /* ActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityView.m; sourceTree = "<group>"; };
+		7660EEC61925676000DED9ED /* SKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHTTPClient.h; sourceTree = "<group>"; };
+		7660EEC71925676000DED9ED /* SKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHTTPClient.m; sourceTree = "<group>"; };
 		766D5EA5191567DC002DFDA3 /* TenMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		766D5EA8191567DC002DFDA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		766D5EAA191567DC002DFDA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,8 +99,6 @@
 		76F25BBF191FDC6200B730EA /* TMDB+Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDB+Movie.m"; sourceTree = "<group>"; };
 		76F25BC119209E5F00B730EA /* TMDB+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMDB+Image.h"; sourceTree = "<group>"; };
 		76F25BC219209E5F00B730EA /* TMDB+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDB+Image.m"; sourceTree = "<group>"; };
-		76F25BC41920A00A00B730EA /* HTTPClient+RAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTPClient+RAC.h"; sourceTree = "<group>"; };
-		76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTTPClient+RAC.m"; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,8 +255,8 @@
 			children = (
 				766D5F1D1916C19F002DFDA3 /* HTTPClient.h */,
 				766D5F1E1916C19F002DFDA3 /* HTTPClient.m */,
-				76F25BC41920A00A00B730EA /* HTTPClient+RAC.h */,
-				76F25BC51920A00A00B730EA /* HTTPClient+RAC.m */,
+				7660EEC61925676000DED9ED /* SKHTTPClient.h */,
+				7660EEC71925676000DED9ED /* SKHTTPClient.m */,
 			);
 			name = HTTPClient;
 			sourceTree = "<group>";
@@ -411,11 +411,11 @@
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
+				7660EEC81925676000DED9ED /* SKHTTPClient.m in Sources */,
 				76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,
 				766D5EDF191585C4002DFDA3 /* TMDB.m in Sources */,
-				76F25BC61920A00A00B730EA /* HTTPClient+RAC.m in Sources */,
 				766D5EED19158D2D002DFDA3 /* NSData+JSON.m in Sources */,
 				76F25BC0191FDC6200B730EA /* TMDB+Movie.m in Sources */,
 				76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */,

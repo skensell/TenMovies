@@ -5,11 +5,15 @@
 
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPSessionManager.h"
+#import <AFHTTPRequestOperationManager.h>
 
-@interface HTTPClient : AFHTTPSessionManager
+@interface HTTPClient : AFHTTPRequestOperationManager
 
 + (instancetype)sharedClient;
+- (AFHTTPRequestOperation *)GET:(NSString *)URLString
+                     parameters:(id)parameters
+                        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 + (BOOL)hasRequestInQueueWithURL:(NSString *)url;
 

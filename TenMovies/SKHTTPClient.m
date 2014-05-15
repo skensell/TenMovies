@@ -1,29 +1,27 @@
 //
-//  HTTPClient+RAC.m
+//  RACHTTPClient.m
 //  TenMovies
 //
-//  Created by Scott Kensell on 5/12/14.
+//  Created by Scott Kensell on 5/15/14.
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "HTTPClient+RAC.h"
-
-#import <ReactiveCocoa.h>
+#import "SKHTTPClient.h"
 
 #import "Logging.h"
 
-@implementation HTTPClient (RAC)
+#import <ReactiveCocoa.h>
+
+@implementation SKHTTPClient
 
 + (RACSignal *)GET:(NSString *)url {
     RACSubject *subject = [RACSubject subject];
     [[HTTPClient sharedClient] GET:url parameters:nil
-                           success:^(id task, id responseObject) {
+                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                [subject sendNext:responseObject];
-                           } failure:^(id task, NSError *error) {
-                               ERROR(@"%@ %@", url, [error localizedDescription]);
+                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                [subject sendError:error];
                            }];
-    
     return subject;
 }
 

@@ -1,8 +1,8 @@
 //
-//  HTTPClient+RAC.h
+//  RACHTTPClient.h
 //  TenMovies
 //
-//  Created by Scott Kensell on 5/12/14.
+//  Created by Scott Kensell on 5/15/14.
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class RACSignal;
 
-@interface HTTPClient (RAC)
+@interface SKHTTPClient : HTTPClient
 
 + (RACSignal *)GET:(NSString *)url;
 

@@ -21,6 +21,7 @@ static NSString *kTableViewCellIdentifier = @"MovieCell";
 static CGFloat kMovieCellHeight = 200.0f;
 
 @interface MovieList()
+@property (nonatomic, strong) ActivityView *activityView;
 @property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
 @end
 
@@ -28,27 +29,37 @@ static CGFloat kMovieCellHeight = 200.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self _downloadMoviesForGenre:TMDB_GENRE_ACTION];
+    [self _downloadMoviesForGenre:TMDB_GENRE_ADVENTURE];
 }
 
 - (void)_downloadMoviesForGenre:(TMDBMovieGenre_t)genre {
-    ActivityView *activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor]
-                                                                         style:UIActivityIndicatorViewStyleGray
-                                                                         scale:2.0f
-                                                                         color:[UIColor blackColor]
-                                                                   coverScreen:YES
-                                                             isInNavController:YES
-                                                                     labelText:@"Downloading movies..."];
-    [self.tableView addSubview:activityView];
-    [activityView startAnimating];
+    [self.activityView startAnimating];
     
     [[TMDB movieIDsFromGenre:genre] subscribeNext:^(NSArray *movieIDs) {
         [[TMDB movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
             self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
-            [activityView stopAnimating];
-            [self.tableView reloadData];
         }];
     }];
+}
+
+- (ActivityView *)activityView {
+    if (!_activityView) {
+        _activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor]
+                                                                style:UIActivityIndicatorViewStyleGray
+                                                                scale:2.0f
+                                                                color:[UIColor blackColor]
+                                                          coverScreen:YES
+                                                    isInNavController:YES
+                                                            labelText:@"Downloading movies..."];
+        [self.tableView addSubview:_activityView];
+    }
+    return _activityView;
+}
+
+- (void)setMovies:(NSArray *)movies {
+    _movies = movies;
+    [self.activityView stopAnimating];
+    [self.tableView reloadData];
 }
 
 #pragma mark - TableViewDataSource

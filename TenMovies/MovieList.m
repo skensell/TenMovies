@@ -11,7 +11,7 @@
 #import <ReactiveCocoa.h>
 
 #import "ActivityView.h"
-#import "HTTPClient.h"
+#import "CoreHTTPClient.h"
 #import "Logging.h"
 #import "Movie+TMDB.h"
 #import "TMDB+Movie.h"

@@ -10,7 +10,7 @@
 
 #import <ReactiveCocoa.h>
 
-#import "SKHTTPClient.h"
+#import "HTTPClient.h"
 #import "Logging.h"
 #import "Movie.h"
 #import "Movie+TMDB.h"
@@ -34,11 +34,11 @@
 #pragma mark - Private
 
 + (RACSignal *OF_TYPE(NSDictionary *))moviesInGenre:(TMDBMovieGenre_t)genre {
-    return [SKHTTPClient GET:[TMDB URLForGenre:genre]];
+    return [HTTPClient GET:[TMDB URLForGenre:genre]];
 }
 
 + (RACSignal *OF_TYPE(NSDictionary *))movieInfoFromMovieID:(NSNumber *)movieID {
-    return [SKHTTPClient GET:[TMDB URLForMovie:movieID]];
+    return [HTTPClient GET:[TMDB URLForMovie:movieID]];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 #import <ReactiveCocoa.h>
 
-#import "SKHTTPClient.h"
+#import "HTTPClient.h"
 #import "Logging.h"
 #import "TMDBAPIKey.h"
 
@@ -27,7 +27,7 @@ static NSString *kThumbnailImageWidthSecondary = @"w154";
         NSString *thumbnailWidth = [self _thumbnailWidthFromPosterSizes:config[1]];
         NSString *url = [self _imageURLwithBase:baseImageURL width:thumbnailWidth path:posterPath];
         
-        [[SKHTTPClient GET:url] subscribeNext:^(UIImage *image) {
+        [[HTTPClient GET:url] subscribeNext:^(UIImage *image) {
             [subject sendNext:image];
         }];
     }];
@@ -41,7 +41,7 @@ static NSString *kThumbnailImageWidthSecondary = @"w154";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         subject = [RACReplaySubject replaySubjectWithCapacity:RACReplaySubjectUnlimitedCapacity];
-        [[SKHTTPClient GET:[TMDB URLForConfiguration]] subscribeNext:^(NSDictionary *response) {
+        [[HTTPClient GET:[TMDB URLForConfiguration]] subscribeNext:^(NSDictionary *response) {
             NSString *baseImageURL = [response valueForKeyPath:TMDB_IMAGE_BASE_URL_KEY_PATH];
             NSArray *posterSizes = [response valueForKeyPath:TMDB_IMAGE_POSTER_SIZES_KEY_PATH];
             if (!baseImageURL || !posterSizes) {

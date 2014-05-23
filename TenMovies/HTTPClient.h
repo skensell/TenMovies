@@ -1,20 +1,17 @@
-// HTTPClient.h
 //
-// Copied from the AFNetworking Example
-// 
+//  RACHTTPClient.h
+//  TenMovies
+//
+//  Created by Scott Kensell on 5/15/14.
+//  Copyright (c) 2014 Scott Kensell. All rights reserved.
+//
 
+#import "CoreHTTPClient.h"
 
-#import <Foundation/Foundation.h>
-#import <AFHTTPRequestOperationManager.h>
+@class RACSignal;
 
-@interface HTTPClient : AFHTTPRequestOperationManager
+@interface HTTPClient : CoreHTTPClient
 
-+ (instancetype)sharedClient;
-- (AFHTTPRequestOperation *)GET:(NSString *)URLString
-                     parameters:(id)parameters
-                        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-+ (BOOL)hasRequestInQueueWithURL:(NSString *)url;
++ (RACSignal *)GET:(NSString *)url;
 
 @end

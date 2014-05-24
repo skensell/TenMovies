@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray * cast;
 @property (nonatomic, strong) NSArray * crew;
+@property (nonatomic, strong) NSArray * genres;
 @property (nonatomic, strong) NSData * thumbnail;
 @property (nonatomic, strong) NSDate * releaseDate;
 @property (nonatomic, strong) NSNumber * ID;

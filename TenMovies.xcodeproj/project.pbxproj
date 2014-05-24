@@ -31,6 +31,8 @@
 		766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EEB19158D2D002DFDA3 /* NSString+Trim.m */; };
 		766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5EF5191591A0002DFDA3 /* TextHelper.m */; };
 		766D5F1F1916C19F002DFDA3 /* CoreHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1E1916C19F002DFDA3 /* CoreHTTPClient.m */; };
+		768037B31931065700EC2FDC /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768037B01931065700EC2FDC /* MovieCell.m */; };
+		768037B41931065700EC2FDC /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768037B11931065700EC2FDC /* MovieCell.xib */; };
 		76F25BB6191D2FF000B730EA /* MovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB5191D2FF000B730EA /* MovieList.m */; };
 		76F25BB9191D8C0E00B730EA /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB8191D8C0E00B730EA /* Movie.m */; };
 		76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBB191FD91500B730EA /* Movie+TMDB.m */; };
@@ -89,6 +91,9 @@
 		766D5EF5191591A0002DFDA3 /* TextHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextHelper.m; sourceTree = "<group>"; };
 		766D5F1D1916C19F002DFDA3 /* CoreHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHTTPClient.h; sourceTree = "<group>"; };
 		766D5F1E1916C19F002DFDA3 /* CoreHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHTTPClient.m; sourceTree = "<group>"; };
+		768037AF1931065700EC2FDC /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieCell.h; path = TenMovies/MovieCell.h; sourceTree = "<group>"; };
+		768037B01931065700EC2FDC /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieCell.m; path = TenMovies/MovieCell.m; sourceTree = "<group>"; };
+		768037B11931065700EC2FDC /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MovieCell.xib; path = TenMovies/MovieCell.xib; sourceTree = "<group>"; };
 		76F25BB4191D2FF000B730EA /* MovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieList.h; sourceTree = "<group>"; };
 		76F25BB5191D2FF000B730EA /* MovieList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieList.m; sourceTree = "<group>"; };
 		76F25BB7191D8C0E00B730EA /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
 				76F25BB4191D2FF000B730EA /* MovieList.h */,
 				76F25BB5191D2FF000B730EA /* MovieList.m */,
+				768037B21931065700EC2FDC /* View */,
 				76F25BBD191FDA1600B730EA /* Model */,
 				766D5F201916C4A1002DFDA3 /* HTTPClient */,
 				766D5EE0191585D3002DFDA3 /* TMDB */,
@@ -261,6 +267,17 @@
 			name = HTTPClient;
 			sourceTree = "<group>";
 		};
+		768037B21931065700EC2FDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				768037AF1931065700EC2FDC /* MovieCell.h */,
+				768037B01931065700EC2FDC /* MovieCell.m */,
+				768037B11931065700EC2FDC /* MovieCell.xib */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		76F25BBD191FDA1600B730EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +369,7 @@
 			files = (
 				766D5EC1191567DC002DFDA3 /* Images.xcassets in Resources */,
 				766D5EB3191567DC002DFDA3 /* InfoPlist.strings in Resources */,
+				768037B41931065700EC2FDC /* MovieCell.xib in Resources */,
 				766D5EBC191567DC002DFDA3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +430,7 @@
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
 				7660EEC81925676000DED9ED /* HTTPClient.m in Sources */,
+				768037B31931065700EC2FDC /* MovieCell.m in Sources */,
 				76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,

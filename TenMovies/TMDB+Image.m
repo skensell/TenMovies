@@ -19,7 +19,7 @@ static NSString *kThumbnailImageWidthSecondary = @"w154";
 
 @implementation TMDB (Image)
 
-+ (RACSignal *OF_TYPE(NSData))thumbnailImageForPosterPath:(NSString *)posterPath {
++ (RACSignal *OF_TYPE(UIImage))thumbnailImageForPosterPath:(NSString *)posterPath {
     RACSubject *subject = [RACSubject subject];
     [[self _configurationSignal] subscribeNext:^(NSArray *config) {
         NSParameterAssert([config count] == 2);

@@ -7,11 +7,12 @@
 //
 
 #import "TMDB.h"
+#import "Logging.h"
 
 @class RACSignal;
 
 @interface TMDB (Image)
 
-+ (RACSignal *)thumbnailImageForPosterPath:(NSString *)posterPath;
++ (RACSignal *OF_TYPE(UIImage *))thumbnailImageForPosterPath:(NSString *)posterPath;
 
 @end

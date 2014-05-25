@@ -14,8 +14,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *runtime;
 @property (strong, nonatomic) IBOutlet UILabel *genres;
 @property (strong, nonatomic) IBOutlet UILabel *cast;
-@property (strong, nonatomic) IBOutlet UIButton *trailerButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *trailerButton;
 @end
 
 @implementation MovieCell

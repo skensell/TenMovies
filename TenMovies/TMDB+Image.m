@@ -14,8 +14,8 @@
 #import "Logging.h"
 #import "TMDBAPIKey.h"
 
-static NSString *kThumbnailImageWidthPreferred = @"w92";
-static NSString *kThumbnailImageWidthSecondary = @"w154";
+static NSString *kThumbnailImageWidthPreferred = @"w154";
+static NSString *kThumbnailImageWidthSecondary = @"w92";
 
 @implementation TMDB (Image)
 

@@ -66,6 +66,9 @@
                                                 <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="tapViewTrailerForMovie:" destination="8UP-RC-Cgq" eventType="touchUpInside" id="tuJ-DN-n0c"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5H-r2-wRy">
                                             <rect key="frame" x="163" y="152" width="34" height="32"/>
@@ -74,6 +77,9 @@
                                                 <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="tapInfoForMovie:" destination="8UP-RC-Cgq" eventType="touchUpInside" id="CL2-e8-Qt7"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>

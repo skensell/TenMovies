@@ -20,7 +20,7 @@
 
 static NSString *kMovieCellIdentifier = @"MovieCell";
 
-@interface MovieList()
+@interface MovieList()<MovieCellDelegate>
 @property (nonatomic, strong) ActivityView *activityView;
 @property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
 @end
@@ -66,8 +66,9 @@ static NSString *kMovieCellIdentifier = @"MovieCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:kMovieCellIdentifier];
-    Movie *movie = [self movieAtIndexPath:indexPath];
+    Movie *movie = [self _movieAtIndexPath:indexPath];
     cell.movie = movie;
+    cell.delegate = self;
     
     if (movie.thumbnail) {
         cell.poster.image = [UIImage imageWithData:movie.thumbnail];
@@ -90,9 +91,21 @@ static NSString *kMovieCellIdentifier = @"MovieCell";
     return 1;
 }
 
+#pragma mark - MovieCell delegate
+
+- (void)didTapViewTrailerForMovie:(Movie *)movie {
+    DEBUG(@"tapped view trailer.");
+}
+
+- (void)didTapInfoForMovie:(Movie *)movie {
+    DEBUG(@"tapped view info.");
+}
+
+
+
 #pragma mark - Private
 
-- (Movie *)movieAtIndexPath:(NSIndexPath *)indexPath {
+- (Movie *)_movieAtIndexPath:(NSIndexPath *)indexPath {
     return self.movies[indexPath.row];
 }
 

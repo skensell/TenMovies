@@ -1,6 +1,6 @@
 //
 //  MovieCell.m
-//  
+//
 //
 //  Created by Scott Kensell on 5/24/14.
 //
@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *genres;
 @property (strong, nonatomic) IBOutlet UILabel *cast;
 
-@property (strong, nonatomic) IBOutlet UIButton *trailerButton;
 @end
 
 @implementation MovieCell
@@ -38,5 +37,12 @@
     _cast.text = [[actors subarrayWithRange:NSMakeRange(0, MIN(4, actors.count))] componentsJoinedByString:@"\n"];
 }
 
+- (IBAction)tapInfoForMovie:(id)sender {
+    [_delegate didTapInfoForMovie:self.movie];
+}
+
+- (IBAction)tapViewTrailerForMovie:(id)sender {
+    [_delegate didTapViewTrailerForMovie:self.movie];
+}
 
 @end

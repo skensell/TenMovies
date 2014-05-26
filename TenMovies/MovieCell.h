@@ -19,4 +19,6 @@
 
 - (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController<MovieCellDelegate> *)delegate;
 
+@property (strong, nonatomic, readonly) Movie *movie;
+
 @end

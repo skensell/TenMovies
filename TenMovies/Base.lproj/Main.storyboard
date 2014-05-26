@@ -90,7 +90,7 @@
                                     <outlet property="rating" destination="9kB-JO-P74" id="0iK-Cf-F6F"/>
                                     <outlet property="runtime" destination="XaW-iN-fob" id="hSb-9Q-pqW"/>
                                     <outlet property="title" destination="nR5-2s-vvz" id="xFE-xX-nH5"/>
-                                    <segue destination="6Ls-7u-sbS" kind="push" id="u4j-cc-oJv"/>
+                                    <segue destination="6Ls-7u-sbS" kind="push" identifier="viewTrailerSegue" id="u4j-cc-oJv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="312" y="240"/>
         </scene>
-        <!--View Controller - Movie Details-->
+        <!--Trailer View Controller - Trailer-->
         <scene sceneID="4kc-2M-KV7">
             <objects>
-                <viewController title="Movie Details" id="6Ls-7u-sbS" sceneMemberID="viewController">
+                <viewController title="Trailer" id="6Ls-7u-sbS" customClass="TrailerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vvr-F1-Jdv"/>
                         <viewControllerLayoutGuide type="bottom" id="H0F-4y-yNV"/>
@@ -123,13 +123,23 @@
                     <view key="view" contentMode="scaleToFill" id="K6P-MV-gJw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YgF-gY-s2W" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="116" width="320" height="383"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Q0u-cr-wWS"/>
+                    <connections>
+                        <outlet property="player" destination="YgF-gY-s2W" id="WHt-S3-vvj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcp-gY-7zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="974"/>
+            <point key="canvasLocation" x="807" y="830"/>
         </scene>
         <!--View Controller - Customize-->
         <scene sceneID="sjl-FZ-rK2">
@@ -174,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCJ-6F-bmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="240"/>
+            <point key="canvasLocation" x="1109" y="156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PbR-hi-da3">

@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *cast;
 @property (strong, nonatomic) IBOutlet UIImageView *poster;
 
-@property (strong, nonatomic) Movie *movie;
+@property (strong, nonatomic, readwrite) Movie *movie;
 @property (weak, nonatomic) UITableViewController<MovieCellDelegate> *delegate;
 @end
 

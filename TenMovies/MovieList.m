@@ -67,19 +67,7 @@ static NSString *kMovieCellIdentifier = @"MovieCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:kMovieCellIdentifier];
     Movie *movie = [self _movieAtIndexPath:indexPath];
-    cell.movie = movie;
-    cell.delegate = self;
-    
-    if (movie.thumbnail) {
-        cell.poster.image = [UIImage imageWithData:movie.thumbnail];
-    } else {
-        [[TMDB thumbnailImageForPosterPath:movie.posterPath] subscribeNext:^(UIImage *image) {
-            movie.thumbnail = UIImageJPEGRepresentation(image, 1.0);
-            if (tableView) {
-                [tableView reloadData];
-            }
-        }];
-    }
+    [cell setupWithMovie:movie andDelegate:self];
     return cell;
 }
 

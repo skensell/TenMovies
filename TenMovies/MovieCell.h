@@ -17,9 +17,6 @@
 
 @interface MovieCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *poster;
-
-@property (strong, nonatomic) Movie *movie;
-@property (weak, nonatomic) id<MovieCellDelegate> delegate;
+- (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController<MovieCellDelegate> *)delegate;
 
 @end

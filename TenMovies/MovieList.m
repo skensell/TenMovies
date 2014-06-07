@@ -17,7 +17,7 @@
 #import "MovieCell.h"
 #import "TMDB+Movie.h"
 #import "TMDB+Image.h"
-#import "TrailerViewController.h"
+#import "MovieDetail.h"
 
 static NSString *kMovieCellIdentifier = @"MovieCell";
 static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
@@ -91,9 +91,9 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     if ([sender isKindOfClass:[MovieCell class]]) {
         Movie *movie = ((MovieCell *)sender).movie;
         if ([segue.identifier isEqualToString:kViewTrailerSegueIdentifier] &&
-            [segue.destinationViewController isKindOfClass:[TrailerViewController class]]) {
+            [segue.destinationViewController isKindOfClass:[MovieDetail class]]) {
             
-            TrailerViewController *tvc = (TrailerViewController *)segue.destinationViewController;
+            MovieDetail *tvc = (MovieDetail *)segue.destinationViewController;
             
             tvc.movie = movie;
         }

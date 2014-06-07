@@ -10,7 +10,7 @@
 
 #import "Movie.h"
 
-@interface TrailerViewController : UIViewController
+@interface MovieDetail : UIViewController
 
 @property (strong, nonatomic) Movie *movie;
 

@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TrailerViewController.h"
+#import "MovieDetail.h"
 
 #import <YTPlayerView.h>
 
-@interface TrailerViewController ()
+@interface MovieDetail ()
 @property (strong, nonatomic) IBOutlet YTPlayerView *player;
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 @end
 
-@implementation TrailerViewController
+@implementation MovieDetail
 
 -(void)viewDidLoad {
     if ([self.movie.youtubeID length]) {

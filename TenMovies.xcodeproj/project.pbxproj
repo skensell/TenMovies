@@ -169,8 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				766D5EBA191567DC002DFDA3 /* Main.storyboard */,
-				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
-				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
 				76F25BB4191D2FF000B730EA /* MovieList.h */,
 				76F25BB5191D2FF000B730EA /* MovieList.m */,
 				768037B519331CAA00EC2FDC /* TrailerViewController.h */,
@@ -188,6 +186,8 @@
 		766D5EAF191567DC002DFDA3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
+				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
 				766D5EC0191567DC002DFDA3 /* Images.xcassets */,
 				766D5EB0191567DC002DFDA3 /* TenMovies-Info.plist */,
 				766D5EB1191567DC002DFDA3 /* InfoPlist.strings */,

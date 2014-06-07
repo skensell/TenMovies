@@ -22,7 +22,7 @@
 static NSString *kMovieCellIdentifier = @"MovieCell";
 static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
-@interface MovieList()<MovieCellDelegate>
+@interface MovieList()
 @property (nonatomic, strong) ActivityView *activityView;
 @property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
 @end
@@ -81,24 +81,11 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     return 1;
 }
 
-#pragma mark - MovieCell delegate
-
-- (void)didTapViewTrailerForMovie:(Movie *)movie {
-    DEBUG(@"tapped view trailer.");
-}
-
-- (void)didTapInfoForMovie:(Movie *)movie {
-    DEBUG(@"tapped view info.");
-}
-
-
-
 #pragma mark - Private
 
 - (Movie *)_movieAtIndexPath:(NSIndexPath *)indexPath {
     return self.movies[indexPath.row];
 }
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([sender isKindOfClass:[MovieCell class]]) {
@@ -107,7 +94,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
             [segue.destinationViewController isKindOfClass:[TrailerViewController class]]) {
             
             TrailerViewController *tvc = (TrailerViewController *)segue.destinationViewController;
-            tvc.youTubeID = movie.youtubeID;
+            
+            tvc.movie = movie;
         }
     }
 }

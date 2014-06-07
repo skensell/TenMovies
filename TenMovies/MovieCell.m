@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *runtime;
 @property (strong, nonatomic) IBOutlet UILabel *genres;
 @property (strong, nonatomic) IBOutlet UILabel *cast;
+@property (strong, nonatomic) IBOutlet UILabel *director;
+@property (strong, nonatomic) IBOutlet UILabel *year;
 @property (strong, nonatomic) IBOutlet UIImageView *poster;
 
 @property (strong, nonatomic, readwrite) Movie *movie;
@@ -32,6 +34,8 @@
     [self _setRating];
     [self _setRuntime];
     [self _setGenres];
+    [self _setDirector];
+    [self _setYear];
     [self _setActors];
     
     [self _setOrDownloadThumbnail];
@@ -63,6 +67,24 @@
     _cast.text = [[actors subarrayWithRange:NSMakeRange(0, MIN(4, actors.count))] componentsJoinedByString:@"\n"];
 }
 
+- (void)_setDirector {
+    NSString *director = nil;
+    for (NSDictionary *person in _movie.crew) {
+        if ([person[@"job"] isEqualToString:@"Director"]) {
+            director = person[@"name"];
+            break;
+        }
+    }
+    _director.text = director;
+}
+
+- (void)_setYear {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy"];
+    NSString *releaseYear = [df stringFromDate:_movie.releaseDate];
+    _year.text = [NSString stringWithFormat:@"%@", releaseYear];
+}
+
 - (void)_setOrDownloadThumbnail {
     if (_movie.thumbnail) {
         _poster.image = [UIImage imageWithData:_movie.thumbnail];
@@ -73,15 +95,15 @@
         }];
     }
 }
-
-#pragma mark - Target-Action
-
-- (IBAction)tapInfoForMovie:(id)sender {
-    [_delegate didTapInfoForMovie:self.movie];
-}
-
-- (IBAction)tapViewTrailerForMovie:(id)sender {
-    [_delegate didTapViewTrailerForMovie:self.movie];
-}
+//
+//#pragma mark - Target-Action
+//
+//- (IBAction)tapInfoForMovie:(id)sender {
+//    [_delegate didTapInfoForMovie:self.movie];
+//}
+//
+//- (IBAction)tapViewTrailerForMovie:(id)sender {
+//    [_delegate didTapViewTrailerForMovie:self.movie];
+//}
 
 @end

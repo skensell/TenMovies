@@ -8,18 +8,21 @@
 
 #import "TrailerViewController.h"
 
-@interface TrailerViewController ()
+#import <YTPlayerView.h>
 
+@interface TrailerViewController ()
+@property (strong, nonatomic) IBOutlet YTPlayerView *player;
+@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 @end
 
 @implementation TrailerViewController
 
 -(void)viewDidLoad {
-    if (self.youTubeID) {
-        [self.player loadWithVideoId:self.youTubeID];
-    } else {
-        // do not enable the segue (use gray color for play button to show it's disabled)
+    if ([self.movie.youtubeID length]) {
+        [self.player loadWithVideoId:self.movie.youtubeID];
     }
+    self.title = self.movie.title;
+    self.summaryTextView.text = self.movie.overview;
 }
 
 @end

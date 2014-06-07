@@ -21,12 +21,12 @@
 @property (strong, nonatomic) IBOutlet UIImageView *poster;
 
 @property (strong, nonatomic, readwrite) Movie *movie;
-@property (weak, nonatomic) UITableViewController<MovieCellDelegate> *delegate;
+@property (weak, nonatomic) UITableViewController *delegate;
 @end
 
 @implementation MovieCell
 
-- (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController<MovieCellDelegate> *)delegate {
+- (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController *)delegate {
     _movie = movie;
     _delegate = delegate;
     
@@ -95,15 +95,5 @@
         }];
     }
 }
-//
-//#pragma mark - Target-Action
-//
-//- (IBAction)tapInfoForMovie:(id)sender {
-//    [_delegate didTapInfoForMovie:self.movie];
-//}
-//
-//- (IBAction)tapViewTrailerForMovie:(id)sender {
-//    [_delegate didTapViewTrailerForMovie:self.movie];
-//}
 
 @end

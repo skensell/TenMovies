@@ -9,15 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Movie.h"
 
-@protocol MovieCellDelegate <NSObject>
-- (void)didTapInfoForMovie:(Movie *)movie;
-- (void)didTapViewTrailerForMovie:(Movie *)movie;
-@end
-
 
 @interface MovieCell : UITableViewCell
 
-- (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController<MovieCellDelegate> *)delegate;
+- (void)setupWithMovie:(Movie *)movie andDelegate:(UITableViewController *)delegate;
 
 @property (strong, nonatomic, readonly) Movie *movie;
 

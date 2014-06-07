@@ -44,6 +44,14 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
     return [self _URLStringFromQuery:queryString appendSuffix:kMovieQuerySuffix];
 }
 
++ (NSString *)URLForDiscoveryFromMovieQueryParameters:(TMDBDiscoverMovieQueryParameters *)params {
+    NSString *sortBy = [TMDBDiscoverMovieQueryParameters sortByTypeAsString:params.sortByType];
+    NSString *genreString = [params genreQueryString];
+    NSString *suffix = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31",genreString, sortBy, params.fromYear, params.toYear];
+    return [self _URLStringFromQuery:kDiscoveryQuery appendSuffix:suffix];
+    
+}
+
 + (NSString *)youTubeTrailerIDFromVideosArray:(NSArray *)videos {
     for (NSDictionary *video in videos) {
         if ([[video[@"type"] lowercaseString] isEqualToString:@"trailer"] &&

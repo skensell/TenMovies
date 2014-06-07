@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4CE40D8EC728401E845304BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA09992072C4AFC902F2C9E /* libPods.a */; };
+		7627FCA6194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 7627FCA5194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m */; };
+		7627FCA9194348F000A6FFE9 /* TMDB+Discover.m in Sources */ = {isa = PBXBuildFile; fileRef = 7627FCA8194348F000A6FFE9 /* TMDB+Discover.m */; };
 		7660EEC51922ADA500DED9ED /* ActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC41922ADA500DED9ED /* ActivityView.m */; };
 		7660EEC81925676000DED9ED /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC71925676000DED9ED /* HTTPClient.m */; };
 		766D5EA9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
@@ -52,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		1AA09992072C4AFC902F2C9E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7627FCA31943461300A6FFE9 /* TMDBMovieGenreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBMovieGenreTypes.h; sourceTree = "<group>"; };
+		7627FCA4194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBDiscoverMovieQueryParameters.h; sourceTree = "<group>"; };
+		7627FCA5194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBDiscoverMovieQueryParameters.m; sourceTree = "<group>"; };
+		7627FCA7194348F000A6FFE9 /* TMDB+Discover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMDB+Discover.h"; sourceTree = "<group>"; };
+		7627FCA8194348F000A6FFE9 /* TMDB+Discover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDB+Discover.m"; sourceTree = "<group>"; };
+		7627FCAA194354A000A6FFE9 /* TMDBSortByTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBSortByTypes.h; sourceTree = "<group>"; };
 		7660EEC31922ADA500DED9ED /* ActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityView.h; sourceTree = "<group>"; };
 		7660EEC41922ADA500DED9ED /* ActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityView.m; sourceTree = "<group>"; };
 		7660EEC61925676000DED9ED /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
@@ -234,8 +242,14 @@
 			isa = PBXGroup;
 			children = (
 				766D5EE11915862A002DFDA3 /* TMDBAPIKey.h */,
+				7627FCA31943461300A6FFE9 /* TMDBMovieGenreTypes.h */,
+				7627FCAA194354A000A6FFE9 /* TMDBSortByTypes.h */,
+				7627FCA4194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.h */,
+				7627FCA5194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m */,
 				766D5EDD191585C4002DFDA3 /* TMDB.h */,
 				766D5EDE191585C4002DFDA3 /* TMDB.m */,
+				7627FCA7194348F000A6FFE9 /* TMDB+Discover.h */,
+				7627FCA8194348F000A6FFE9 /* TMDB+Discover.m */,
 				76F25BBE191FDC6200B730EA /* TMDB+Movie.h */,
 				76F25BBF191FDC6200B730EA /* TMDB+Movie.m */,
 				76F25BC119209E5F00B730EA /* TMDB+Image.h */,
@@ -444,10 +458,12 @@
 				766D5F1F1916C19F002DFDA3 /* CoreHTTPClient.m in Sources */,
 				766D5EEC19158D2D002DFDA3 /* NSArray+JSON.m in Sources */,
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
+				7627FCA9194348F000A6FFE9 /* TMDB+Discover.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
 				7660EEC81925676000DED9ED /* HTTPClient.m in Sources */,
 				768037B719331CAA00EC2FDC /* MovieDetail.m in Sources */,
+				7627FCA6194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m in Sources */,
 				768037B31931065700EC2FDC /* MovieCell.m in Sources */,
 				76F25BC319209E5F00B730EA /* TMDB+Image.m in Sources */,
 				766D5EF019158D2D002DFDA3 /* NSString+Trim.m in Sources */,

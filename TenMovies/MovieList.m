@@ -15,9 +15,12 @@
 #import "Logging.h"
 #import "Movie+TMDB.h"
 #import "MovieCell.h"
+#import "MovieDetail.h"
+#import "TMDB+Discover.h"
 #import "TMDB+Movie.h"
 #import "TMDB+Image.h"
-#import "MovieDetail.h"
+#import "TMDBDiscoverMovieQueryParameters.h"
+
 
 static NSString *kMovieCellIdentifier = @"MovieCell";
 static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
@@ -31,13 +34,20 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self _downloadMoviesForGenre:TMDB_GENRE_ADVENTURE];
+    
+    TMDBDiscoverMovieQueryParameters *params = [TMDBDiscoverMovieQueryParameters new];
+    params.sortByType = SORT_BY_POPULARITY_DESC;
+    params.genres = @[@(TMDB_GENRE_ACTION)];
+    params.fromYear = 2012;
+    params.toYear = 2013;
+    
+    [self _downloadMoviesForDiscoveryWithParams:params];
 }
 
-- (void)_downloadMoviesForGenre:(TMDBMovieGenre_t)genre {
+- (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
     [self.activityView startAnimating];
     
-    [[TMDB movieIDsFromGenre:genre] subscribeNext:^(NSArray *movieIDs) {
+    [[TMDB movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
         [[TMDB movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
             self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
         }];

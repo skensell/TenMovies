@@ -1,12 +1,12 @@
 //
-//  TMDB.m
-//  TenMovies
+//  TMDBUrls.m
+//  
 //
-//  Created by Scott Kensell on 5/3/14.
-//  Copyright (c) 2014 Scott Kensell. All rights reserved.
+//  Created by Scott Kensell on 6/10/14.
+//
 //
 
-#import "TMDB.h"
+#import "TMDBUrls.h"
 
 #import "TMDBAPIKey.h"
 #import "NSString+Contains.h"
@@ -21,7 +21,7 @@ static NSString *kMovieQuery = @"movie/%@";
 static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos&include_image_language=en,null";
 
 
-@implementation TMDB
+@implementation TMDBUrls
 
 + (NSString *)URLForConfiguration {
     return [self _URLStringFromQuery:kConfigurationQuery];
@@ -50,16 +50,6 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
     NSString *suffix = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31",genreString, sortBy, params.fromYear, params.toYear];
     return [self _URLStringFromQuery:kDiscoveryQuery appendSuffix:suffix];
     
-}
-
-+ (NSString *)youTubeTrailerIDFromVideosArray:(NSArray *)videos {
-    for (NSDictionary *video in videos) {
-        if ([[video[@"type"] lowercaseString] isEqualToString:@"trailer"] &&
-            [[video[@"site"] lowercaseString] isEqualToString:@"youtube"]) {
-            return video[@"key"];
-        }
-    }
-    return nil;
 }
 
 

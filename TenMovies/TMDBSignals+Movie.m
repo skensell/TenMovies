@@ -6,16 +6,15 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TMDB+Movie.h"
-
-#import <ReactiveCocoa.h>
+#import "TMDBSignals+Movie.h"
 
 #import "HTTPClient.h"
-#import "Logging.h"
 #import "Movie.h"
 #import "Movie+TMDB.h"
 
-@implementation TMDB (Movie)
+#import <ReactiveCocoa.h>
+
+@implementation TMDBSignals (Movie)
 
 + (RACSignal *OF_TYPE(NSArray *))movieIDsFromGenre:(TMDBMovieGenre_t)genre {
     return [[self moviesInGenre:genre] map:^NSArray *(id response) {
@@ -34,11 +33,11 @@
 #pragma mark - Private
 
 + (RACSignal *OF_TYPE(NSDictionary *))moviesInGenre:(TMDBMovieGenre_t)genre {
-    return [HTTPClient GET:[TMDB URLForGenre:genre]];
+    return [HTTPClient GET:[TMDBUrls URLForGenre:genre]];
 }
 
 + (RACSignal *OF_TYPE(NSDictionary *))movieInfoFromMovieID:(NSNumber *)movieID {
-    return [HTTPClient GET:[TMDB URLForMovie:movieID]];
+    return [HTTPClient GET:[TMDBUrls URLForMovie:movieID]];
 }
 
 @end

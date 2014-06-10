@@ -39,7 +39,7 @@
     movie.overview = movieDict[TMDB_OVERVIEW_KEY_PATH];
     movie.title = movieDict[TMDB_TITLE_KEY_PATH];
     
-    movie.youtubeID = [TMDB youTubeTrailerIDFromVideosArray:[movieDict valueForKeyPath:TMDB_VIDEOS_KEY_PATH]];
+    movie.youtubeID = [TMDBParser youTubeTrailerIDFromVideosArray:[movieDict valueForKeyPath:TMDB_VIDEOS_KEY_PATH]];
     
     return movie;
 }

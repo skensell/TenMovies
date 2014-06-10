@@ -7,7 +7,7 @@
 //
 
 #import "MovieCell.h"
-#import "TMDB+Image.h"
+#import "TMDBSignals+Image.h"
 #import <RACSignal.h>
 
 @interface MovieCell()
@@ -89,7 +89,7 @@
     if (_movie.thumbnail) {
         _poster.image = [UIImage imageWithData:_movie.thumbnail];
     } else {
-        [[TMDB thumbnailImageForPosterPath:_movie.posterPath] subscribeNext:^(UIImage *image) {
+        [[TMDBSignals thumbnailImageForPosterPath:_movie.posterPath] subscribeNext:^(UIImage *image) {
             _movie.thumbnail = UIImageJPEGRepresentation(image, 1.0);
             [_delegate.tableView reloadData];
         }];

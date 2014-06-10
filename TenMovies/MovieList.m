@@ -16,10 +16,7 @@
 #import "Movie+TMDB.h"
 #import "MovieCell.h"
 #import "MovieDetail.h"
-#import "TMDB+Discover.h"
-#import "TMDB+Movie.h"
-#import "TMDB+Image.h"
-#import "TMDBDiscoverMovieQueryParameters.h"
+#import "TMDB.h"
 
 
 static NSString *kMovieCellIdentifier = @"MovieCell";
@@ -47,8 +44,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 - (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
     [self.activityView startAnimating];
     
-    [[TMDB movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
-        [[TMDB movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
+    [[TMDBSignals movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
+        [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
             self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
         }];
     }];

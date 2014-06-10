@@ -6,18 +6,16 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TMDB+Image.h"
-
-#import <ReactiveCocoa.h>
+#import "TMDBSignals+Image.h"
 
 #import "HTTPClient.h"
-#import "Logging.h"
-#import "TMDBAPIKey.h"
+
+#import <ReactiveCocoa.h>
 
 static NSString *kThumbnailImageWidthPreferred = @"w154";
 static NSString *kThumbnailImageWidthSecondary = @"w92";
 
-@implementation TMDB (Image)
+@implementation TMDBSignals (Image)
 
 + (RACSignal *OF_TYPE(UIImage))thumbnailImageForPosterPath:(NSString *)posterPath {
     RACSubject *subject = [RACSubject subject];
@@ -41,7 +39,7 @@ static NSString *kThumbnailImageWidthSecondary = @"w92";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         subject = [RACReplaySubject replaySubjectWithCapacity:RACReplaySubjectUnlimitedCapacity];
-        [[HTTPClient GET:[TMDB URLForConfiguration]] subscribeNext:^(NSDictionary *response) {
+        [[HTTPClient GET:[TMDBUrls URLForConfiguration]] subscribeNext:^(NSDictionary *response) {
             NSString *baseImageURL = [response valueForKeyPath:TMDB_IMAGE_BASE_URL_KEY_PATH];
             NSArray *posterSizes = [response valueForKeyPath:TMDB_IMAGE_POSTER_SIZES_KEY_PATH];
             if (!baseImageURL || !posterSizes) {

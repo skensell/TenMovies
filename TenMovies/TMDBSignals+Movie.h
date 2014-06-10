@@ -6,13 +6,9 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TMDB.h"
+#import "TMDBSignals.h"
 
-#import "Logging.h"
-
-@class RACSignal;
-
-@interface TMDB (Movie)
+@interface TMDBSignals (Movie)
 
 // sends next when the one request finishes
 + (RACSignal *OF_TYPE(NSArray *))movieIDsFromGenre:(TMDBMovieGenre_t)genre;

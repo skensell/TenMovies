@@ -6,12 +6,9 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TMDB.h"
-#import "Logging.h"
+#import "TMDBSignals.h"
 
-@class RACSignal;
-
-@interface TMDB (Image)
+@interface TMDBSignals (Image)
 
 + (RACSignal *OF_TYPE(UIImage *))thumbnailImageForPosterPath:(NSString *)posterPath;
 

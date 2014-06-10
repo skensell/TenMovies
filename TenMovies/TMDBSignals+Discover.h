@@ -6,15 +6,11 @@
 //  Copyright (c) 2014 Scott Kensell. All rights reserved.
 //
 
-#import "TMDB.h"
+#import "TMDBSignals.h"
 
 #import "TMDBDiscoverMovieQueryParameters.h"
 
-#import "Logging.h"
-
-@class RACSignal;
-
-@interface TMDB (Discover)
+@interface TMDBSignals (Discover)
 
 // sends next when the request finishes
 + (RACSignal *OF_TYPE(NSArray *))movieIDsFromDiscoverQueryParameters:(TMDBDiscoverMovieQueryParameters *)params;

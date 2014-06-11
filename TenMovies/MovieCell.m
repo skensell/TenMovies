@@ -14,7 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *rating;
 @property (strong, nonatomic) IBOutlet UILabel *runtime;
-@property (strong, nonatomic) IBOutlet UILabel *genres;
 @property (strong, nonatomic) IBOutlet UILabel *cast;
 @property (strong, nonatomic) IBOutlet UILabel *director;
 @property (strong, nonatomic) IBOutlet UILabel *year;
@@ -33,7 +32,6 @@
     [self _setTitle];
     [self _setRating];
     [self _setRuntime];
-    [self _setGenres];
     [self _setDirector];
     [self _setYear];
     [self _setActors];
@@ -55,11 +53,6 @@
 
 - (void)_setRuntime {
     _runtime.text = [NSString stringWithFormat:@"%@m", _movie.runtime];
-}
-
-- (void)_setGenres {
-    NSArray *genres = [_movie.genres valueForKeyPath:@"name"];
-    _genres.text = [[genres subarrayWithRange:NSMakeRange(0, MIN(1, genres.count))] componentsJoinedByString:@", "];
 }
 
 - (void)_setActors {

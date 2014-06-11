@@ -25,17 +25,28 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 @interface MovieList()
 @property (nonatomic, strong) ActivityView *activityView;
-@property (nonatomic,strong) NSArray *movies OF_TYPE(Movie);
+@property (nonatomic, strong) NSArray *movies OF_TYPE(Movie);
+@property (nonatomic, strong) TMDBDiscoverMovieQueryParameters *params;
 @end
 
 @implementation MovieList
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self _downloadMoviesForDiscoveryWithParams:self.params];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     TMDBDiscoverMovieQueryParameters *params = [DefaultsManager discoverMovieQueryParameters];
+    BOOL hasCustomized = [params isEqual:self.params] == NO;
     
-    [self _downloadMoviesForDiscoveryWithParams:params];
+    if (hasCustomized) {
+        self.params = params;
+        self.movies = nil;
+        [self _downloadMoviesForDiscoveryWithParams:params];
+    }
 }
 
 - (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
@@ -47,6 +58,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
         }];
     }];
 }
+
+#pragma mark - Properties
 
 - (ActivityView *)activityView {
     if (!_activityView) {
@@ -66,6 +79,13 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     _movies = movies;
     [self.activityView stopAnimating];
     [self.tableView reloadData];
+}
+
+- (TMDBDiscoverMovieQueryParameters *)params {
+    if (!_params) {
+        _params = [DefaultsManager discoverMovieQueryParameters];
+    }
+    return _params;
 }
 
 #pragma mark - TableViewDataSource

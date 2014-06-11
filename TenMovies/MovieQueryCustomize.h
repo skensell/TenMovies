@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieQueryCustomize : UIViewController
+@interface MovieQueryCustomize : UITableViewController
 
 @end

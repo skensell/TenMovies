@@ -21,7 +21,11 @@
 @property (nonatomic) NSArray *OF_TYPE(NSNumber *) genres;
 @property (nonatomic) BOOL isRandom;
 
-- (NSString *)genreQueryString;
+- (NSString *)genreQueryString; // I could instead implement - (void)queryString;
+
+// for storage in NSUserDefaults
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)asDictionary;
 
 + (NSString *)sortByTypeAsString:(TMDBDSortBy_t)sortByType;
 + (NSArray *)allGenres;

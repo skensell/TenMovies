@@ -17,18 +17,47 @@ static NSString *kReleaseDateAsc = @"release_date.asc";
 static NSString *kPopularityDesc = @"popularity.desc";
 static NSString *kPopularityAsc = @"popularity.asc";
 
+static NSString *kDictRepFromYearKey = @"fromYear";
+static NSString *kDictRepToYearKey = @"toYear";
+static NSString *kDictRepSortByTypeKey = @"sortByType";
+static NSString *kDictRepGenresKey = @"genres";
+static NSString *kDictRepIsRandomKey = @"isRandom";
+
+
+
 @implementation TMDBDiscoverMovieQueryParameters
 
 - (instancetype)init {
+    return [self initWithDictionary:nil];
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
-        _fromYear = 2013;
-        _toYear = 2014;
-        _sortByType = SORT_BY_POPULARITY_DESC;
-         _genres = [TMDBDiscoverMovieQueryParameters allGenres];
-        _isRandom = NO;
+        if (dict) {
+            _fromYear = [dict[kDictRepFromYearKey] integerValue];
+            _toYear = [dict[kDictRepToYearKey] integerValue];
+            _sortByType = [dict[kDictRepSortByTypeKey] intValue];
+            _genres = (NSArray *)dict[kDictRepGenresKey];
+            _isRandom = [dict[kDictRepIsRandomKey] boolValue];
+        } else {
+            _fromYear = 2013;
+            _toYear = 2014;
+            _sortByType = SORT_BY_POPULARITY_DESC;
+            _genres = [TMDBDiscoverMovieQueryParameters allGenres];
+            _isRandom = NO;
+        }
     }
     return self;
+}
+
+- (NSDictionary *)asDictionary {
+    return [NSDictionary dictionaryWithObjectsAndKeys:@(self.fromYear), kDictRepFromYearKey,
+            @(self.toYear), kDictRepToYearKey,
+            @(self.sortByType), kDictRepSortByTypeKey,
+            self.genres, kDictRepGenresKey,
+            @(self.isRandom), kDictRepIsRandomKey,
+            nil];
 }
 
 - (NSString *)genreQueryString {
@@ -103,6 +132,26 @@ static NSString *kPopularityAsc = @"popularity.asc";
              @(TMDB_GENRE_THRILLER),
              @(TMDB_GENRE_WAR),
              @(TMDB_GENRE_WESTERN)];
+}
+
+#pragma mark - NSObject
+
+-(BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[TMDBDiscoverMovieQueryParameters class]] == NO) {
+        return NO;
+    }
+    
+    TMDBDiscoverMovieQueryParameters *params = (TMDBDiscoverMovieQueryParameters *)object;
+    BOOL hasSameGenres = [[NSSet setWithArray:self.genres] isEqualToSet:[NSSet setWithArray:params.genres]];
+    
+    return (self.fromYear == params.fromYear &&
+            self.toYear == params.toYear &&
+            self.isRandom == params.isRandom &&
+            hasSameGenres);
+}
+
+- (NSString *)description {
+    return [[self asDictionary] description];
 }
 
 @end

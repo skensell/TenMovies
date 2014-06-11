@@ -15,15 +15,13 @@ static NSString *kDiscoverMovieQueryParamsKey = @"DiscoverMovieQueryParamsKey";
 @implementation DefaultsManager
 
 + (TMDBDiscoverMovieQueryParameters *)discoverMovieQueryParameters {
-    TMDBDiscoverMovieQueryParameters *params = [[NSUserDefaults standardUserDefaults] objectForKey:kDiscoverMovieQueryParamsKey];
-    if (!params) {
-        params = [[TMDBDiscoverMovieQueryParameters alloc] init];
-    }
-    return params;
+    NSDictionary *paramsAsDict = [[NSUserDefaults standardUserDefaults] objectForKey:kDiscoverMovieQueryParamsKey];
+    
+    return [[TMDBDiscoverMovieQueryParameters alloc] initWithDictionary:paramsAsDict];
 }
 
 + (void)setDiscoverMovieQueryParameters:(TMDBDiscoverMovieQueryParameters *)params {
-    [[NSUserDefaults standardUserDefaults] setObject:params forKey:kDiscoverMovieQueryParamsKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[params asDictionary] forKey:kDiscoverMovieQueryParamsKey];
 }
 
 @end

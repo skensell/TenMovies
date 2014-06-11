@@ -147,6 +147,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
     return (self.fromYear == params.fromYear &&
             self.toYear == params.toYear &&
             self.isRandom == params.isRandom &&
+            self.sortByType == params.sortByType &&
             hasSameGenres);
 }
 

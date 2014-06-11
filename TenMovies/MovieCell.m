@@ -89,10 +89,14 @@
     if (_movie.thumbnail) {
         _poster.image = [UIImage imageWithData:_movie.thumbnail];
     } else {
-        [[TMDBSignals thumbnailImageForPosterPath:_movie.posterPath] subscribeNext:^(UIImage *image) {
-            _movie.thumbnail = UIImageJPEGRepresentation(image, 1.0);
-            [_delegate.tableView reloadData];
-        }];
+        if (_movie.posterPath == (id)[NSNull null] || _movie.posterPath.length == 0) {
+            // TODO: say no Image available
+        } else {
+            [[TMDBSignals thumbnailImageForPosterPath:_movie.posterPath] subscribeNext:^(UIImage *image) {
+                _movie.thumbnail = UIImageJPEGRepresentation(image, 1.0);
+                [_delegate.tableView reloadData];
+            }];
+        }
     }
 }
 

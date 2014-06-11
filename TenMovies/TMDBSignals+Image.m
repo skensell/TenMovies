@@ -21,6 +21,7 @@ static NSString *kThumbnailImageWidthSecondary = @"w92";
     RACSubject *subject = [RACSubject subject];
     [[self _configurationSignal] subscribeNext:^(NSArray *config) {
         NSParameterAssert([config count] == 2);
+        NSParameterAssert(posterPath != (id)[NSNull null]);
         NSString *baseImageURL = config[0];
         NSString *thumbnailWidth = [self _thumbnailWidthFromPosterSizes:config[1]];
         NSString *url = [self _imageURLwithBase:baseImageURL width:thumbnailWidth path:posterPath];

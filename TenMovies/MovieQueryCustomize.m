@@ -31,6 +31,12 @@ static int kNumberOfYearsToAllow = 60;
     _releaseDateYearPicker.delegate = self;
     [_releaseDateYearPicker selectRow:(self.params.fromYear - kFirstYearToAllow) inComponent:0 animated:NO];
     [_releaseDateYearPicker selectRow:(self.params.toYear - kFirstYearToAllow) inComponent:1 animated:NO];
+    
+    if (self.params.sortByType == SORT_BY_POPULARITY_DESC) {
+        _sortByTypeSegmentedControl.selectedSegmentIndex = 0;
+    } else if (self.params.sortByType == SORT_BY_VOTE_AVERAGE_DESC) {
+        _sortByTypeSegmentedControl.selectedSegmentIndex = 1;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -66,6 +72,18 @@ static int kNumberOfYearsToAllow = 60;
         self.params.toYear = year;
     }
 }
+
+#pragma mark - UISegmentedControl
+
+- (IBAction)tapSortByTypeSegmentedControl:(id)sender {
+    int index = self.sortByTypeSegmentedControl.selectedSegmentIndex;
+    if (index == 0) {
+        self.params.sortByType = SORT_BY_POPULARITY_DESC;
+    } else {
+        self.params.sortByType = SORT_BY_VOTE_AVERAGE_DESC;
+    }
+}
+
 
 #pragma mark - Private
 

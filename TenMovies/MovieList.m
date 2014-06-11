@@ -11,6 +11,7 @@
 #import <ReactiveCocoa.h>
 
 #import "ActivityView.h"
+#import "DefaultsManager.h"
 #import "CoreHTTPClient.h"
 #import "Logging.h"
 #import "Movie+TMDB.h"
@@ -32,11 +33,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    TMDBDiscoverMovieQueryParameters *params = [TMDBDiscoverMovieQueryParameters new];
-    params.sortByType = SORT_BY_POPULARITY_DESC;
-    params.genres = @[@(TMDB_GENRE_ACTION)];
-    params.fromYear = 2012;
-    params.toYear = 2013;
+    TMDBDiscoverMovieQueryParameters *params = [DefaultsManager discoverMovieQueryParameters];
     
     [self _downloadMoviesForDiscoveryWithParams:params];
 }
@@ -95,15 +92,14 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([sender isKindOfClass:[MovieCell class]]) {
+    
+    if ([segue.identifier isEqualToString:kViewTrailerSegueIdentifier] &&
+        [segue.destinationViewController isKindOfClass:[MovieDetail class]] &&
+        [sender isKindOfClass:[MovieCell class]]) {
+        
         Movie *movie = ((MovieCell *)sender).movie;
-        if ([segue.identifier isEqualToString:kViewTrailerSegueIdentifier] &&
-            [segue.destinationViewController isKindOfClass:[MovieDetail class]]) {
-            
-            MovieDetail *tvc = (MovieDetail *)segue.destinationViewController;
-            
-            tvc.movie = movie;
-        }
+        MovieDetail *tvc = (MovieDetail *)segue.destinationViewController;
+        tvc.movie = movie;
     }
 }
 

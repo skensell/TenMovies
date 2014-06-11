@@ -19,6 +19,18 @@ static NSString *kPopularityAsc = @"popularity.asc";
 
 @implementation TMDBDiscoverMovieQueryParameters
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _fromYear = 2013;
+        _toYear = 2014;
+        _sortByType = SORT_BY_POPULARITY_DESC;
+         _genres = [TMDBDiscoverMovieQueryParameters allGenres];
+        _isRandom = NO;
+    }
+    return self;
+}
+
 - (NSString *)genreQueryString {
     if (![self.genres count]) {
         return @"";
@@ -53,6 +65,44 @@ static NSString *kPopularityAsc = @"popularity.asc";
             break;
     }
     return s;
+}
+
++ (NSArray *)allGenres {
+    return @[@(TMDB_GENRE_ACTION),
+             @(TMDB_GENRE_ADVENTURE),
+             @(TMDB_GENRE_ANIMATION),
+             @(TMDB_GENRE_COMEDY),
+             @(TMDB_GENRE_CRIME),
+             @(TMDB_GENRE_DISASTER),
+             @(TMDB_GENRE_DOCUMENTARY),
+             @(TMDB_GENRE_DRAMA),
+             @(TMDB_GENRE_EASTERN),
+             @(TMDB_GENRE_EROTIC),
+             @(TMDB_GENRE_FAMILY),
+             @(TMDB_GENRE_FAN_FILM),
+             @(TMDB_GENRE_FANTASY),
+             @(TMDB_GENRE_FILM_NOIR),
+             @(TMDB_GENRE_FOREIGN),
+             @(TMDB_GENRE_HISTORY),
+             @(TMDB_GENRE_HOLIDAY),
+             @(TMDB_GENRE_HORROR),
+             @(TMDB_GENRE_INDIE),
+             @(TMDB_GENRE_MUSIC),
+             @(TMDB_GENRE_MUSICAL),
+             @(TMDB_GENRE_MYSTERY),
+             @(TMDB_GENRE_NEO_NOIR),
+             @(TMDB_GENRE_ROAD_MOVIE),
+             @(TMDB_GENRE_ROMANCE),
+             @(TMDB_GENRE_SCIENCE_FICTION),
+             @(TMDB_GENRE_SHORT),
+             @(TMDB_GENRE_SPORT),
+             @(TMDB_GENRE_SPORTING_EVENT),
+             @(TMDB_GENRE_SPORTS_FILM),
+             @(TMDB_GENRE_SUSPENSE),
+             @(TMDB_GENRE_TV_MOVIE),
+             @(TMDB_GENRE_THRILLER),
+             @(TMDB_GENRE_WAR),
+             @(TMDB_GENRE_WESTERN)];
 }
 
 @end

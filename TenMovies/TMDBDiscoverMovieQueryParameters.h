@@ -24,5 +24,6 @@
 - (NSString *)genreQueryString;
 
 + (NSString *)sortByTypeAsString:(TMDBDSortBy_t)sortByType;
++ (NSArray *)allGenres;
 
 @end

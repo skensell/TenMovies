@@ -18,7 +18,7 @@
 @property (nonatomic) NSUInteger fromYear;
 @property (nonatomic) NSUInteger toYear;
 @property (nonatomic) TMDBDSortBy_t sortByType;
-@property (nonatomic) NSArray *OF_TYPE(NSNumber *) genres;
+@property (nonatomic) NSArray *OF_TYPE(TMDBGenre *) genres;
 @property (nonatomic) BOOL isRandom;
 
 - (NSString *)genreQueryString; // I could instead implement - (void)queryString;
@@ -28,6 +28,5 @@
 - (NSDictionary *)asDictionary;
 
 + (NSString *)sortByTypeAsString:(TMDBDSortBy_t)sortByType;
-+ (NSArray *)allGenres;
 
 @end

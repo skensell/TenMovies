@@ -9,6 +9,7 @@
 #import "MovieQueryCustomize.h"
 
 #import "TMDBDiscoverMovieQueryParameters.h"
+#import "TMDBGenre.h"
 #import "DefaultsManager.h"
 #import "GenreCell.h"
 #import "ReleaseDateCell.h"
@@ -111,9 +112,15 @@
     if ([cellIdentifier isEqualToString:genreCellIdentifier]) {
         
         GenreCell *genreCell = (GenreCell *)cell;
-        genreCell.label.text = @"Genre Awesome.";
-        genreCell.onSwitch.on = YES;
-        
+        if (indexPath.row == 0) {
+            genreCell.label.text = @"All";
+            genreCell.onSwitch.on = NO;
+        } else {
+            TMDBGenre *genre = [TMDBGenre genreWithAlphabeticalIndex:indexPath.row-1];
+            genreCell.label.text = [genre asText];
+            genreCell.onSwitch.on = YES;
+        }
+    
     } else if ([cellIdentifier isEqualToString:releaseDateCellIdentifier]) {
         
         ReleaseDateCell *releaseDateCell = (ReleaseDateCell *)cell;
@@ -137,7 +144,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return (section == 2) ? [TMDBGenre allGenres].count + 1 : 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -44,6 +44,9 @@
 		76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBB191FD91500B730EA /* Movie+TMDB.m */; };
 		76F25BC0191FDC6200B730EA /* TMDBSignals+Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBF191FDC6200B730EA /* TMDBSignals+Movie.m */; };
 		76F25BC319209E5F00B730EA /* TMDBSignals+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BC219209E5F00B730EA /* TMDBSignals+Image.m */; };
+		76F3FCF8194B46130041144E /* GenreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FCF7194B46130041144E /* GenreCell.m */; };
+		76F3FCFB194B4C0A0041144E /* ReleaseDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FCFA194B4C0A0041144E /* ReleaseDateCell.m */; };
+		76F3FCFE194B4C200041144E /* SortByCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FCFD194B4C200041144E /* SortByCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,12 @@
 		76F25BBF191FDC6200B730EA /* TMDBSignals+Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDBSignals+Movie.m"; sourceTree = "<group>"; };
 		76F25BC119209E5F00B730EA /* TMDBSignals+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMDBSignals+Image.h"; sourceTree = "<group>"; };
 		76F25BC219209E5F00B730EA /* TMDBSignals+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMDBSignals+Image.m"; sourceTree = "<group>"; };
+		76F3FCF6194B46130041144E /* GenreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenreCell.h; path = TenMovies/GenreCell.h; sourceTree = "<group>"; };
+		76F3FCF7194B46130041144E /* GenreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenreCell.m; path = TenMovies/GenreCell.m; sourceTree = "<group>"; };
+		76F3FCF9194B4C0A0041144E /* ReleaseDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReleaseDateCell.h; path = TenMovies/ReleaseDateCell.h; sourceTree = "<group>"; };
+		76F3FCFA194B4C0A0041144E /* ReleaseDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReleaseDateCell.m; path = TenMovies/ReleaseDateCell.m; sourceTree = "<group>"; };
+		76F3FCFC194B4C200041144E /* SortByCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortByCell.h; path = TenMovies/SortByCell.h; sourceTree = "<group>"; };
+		76F3FCFD194B4C200041144E /* SortByCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortByCell.m; path = TenMovies/SortByCell.m; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,6 +346,12 @@
 			children = (
 				768037AF1931065700EC2FDC /* MovieCell.h */,
 				768037B01931065700EC2FDC /* MovieCell.m */,
+				76F3FCF6194B46130041144E /* GenreCell.h */,
+				76F3FCF7194B46130041144E /* GenreCell.m */,
+				76F3FCF9194B4C0A0041144E /* ReleaseDateCell.h */,
+				76F3FCFA194B4C0A0041144E /* ReleaseDateCell.m */,
+				76F3FCFC194B4C200041144E /* SortByCell.h */,
+				76F3FCFD194B4C200041144E /* SortByCell.m */,
 			);
 			name = View;
 			path = ..;
@@ -495,9 +510,12 @@
 				7627FCB21946E07A00A6FFE9 /* TMDBSignals.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
+				76F3FCFE194B4C200041144E /* SortByCell.m in Sources */,
 				7660EEC81925676000DED9ED /* HTTPClient.m in Sources */,
+				76F3FCFB194B4C0A0041144E /* ReleaseDateCell.m in Sources */,
 				768037B719331CAA00EC2FDC /* MovieDetail.m in Sources */,
 				7627FCA6194347B700A6FFE9 /* TMDBDiscoverMovieQueryParameters.m in Sources */,
+				76F3FCF8194B46130041144E /* GenreCell.m in Sources */,
 				768037B31931065700EC2FDC /* MovieCell.m in Sources */,
 				7627FCAF1946DE0A00A6FFE9 /* TMDBUrls.m in Sources */,
 				76F25BC319209E5F00B730EA /* TMDBSignals+Image.m in Sources */,

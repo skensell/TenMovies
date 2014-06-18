@@ -9,15 +9,25 @@
 #import "TMDBSignals+Discover.h"
 
 #import "HTTPClient.h"
+#import "TMDBErrors.h"
 
 #import "RACSignal.h"
+#import "RACSubject.h"
 
 @implementation TMDBSignals (Discover)
 
 + (RACSignal *)movieIDsFromDiscoverQueryParameters:(TMDBDiscoverMovieQueryParameters *)params {
-    return [[HTTPClient GET:[TMDBUrls URLForDiscoveryFromMovieQueryParameters:params]] map:^NSArray *(id response) {
-        return [response valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
-    }];;
+    RACSubject *subject = [RACSubject subject];
+    [[HTTPClient GET:[TMDBUrls URLForDiscoveryFromMovieQueryParameters:params]] subscribeNext:^(id response) {
+        NSArray *movieIds = [response valueForKeyPath:TMDB_MOVIE_ID_FULL_PATH];
+        if (movieIds.count) {
+            [subject sendNext:movieIds];
+        } else {
+            NSError *error = [NSError errorWithDomain:TMDB_ERROR_DOMAIN code:TMDB_ERROR_NO_MOVIES userInfo:@{NSLocalizedDescriptionKey : @"No movies."}];
+            [subject sendError:error];
+        }
+    }];
+    return subject;
 }
 
 @end

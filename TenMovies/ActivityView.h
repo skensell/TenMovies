@@ -29,4 +29,7 @@
 - (void)startAnimating;
 - (void)stopAnimating;
 
+- (void)hideSpinner;
+- (void)changeMessage:(NSString *)message;
+
 @end

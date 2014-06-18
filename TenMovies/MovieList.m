@@ -18,6 +18,7 @@
 #import "MovieCell.h"
 #import "MovieDetail.h"
 #import "TMDB.h"
+#import "TMDBErrors.h"
 
 
 static NSString *kMovieCellIdentifier = @"MovieCell";
@@ -51,11 +52,18 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 - (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
     [self.activityView startAnimating];
+    [self.activityView changeMessage:@"Downloading movies..."];
     
     [[TMDBSignals movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
         [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
             self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
         }];
+    } error:^(NSError *error) {
+        if ([error.domain isEqualToString:TMDB_ERROR_DOMAIN]) {
+            self.movies = nil;
+            [self.activityView hideSpinner];
+            [self.activityView changeMessage:error.localizedDescription];
+        }
     }];
 }
 
@@ -77,8 +85,10 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 - (void)setMovies:(NSArray *)movies {
     _movies = movies;
-    [self.activityView stopAnimating];
-    [self.tableView reloadData];
+    if (movies != nil) {
+        [self.activityView stopAnimating];
+        [self.tableView reloadData];
+    }
 }
 
 - (TMDBDiscoverMovieQueryParameters *)params {

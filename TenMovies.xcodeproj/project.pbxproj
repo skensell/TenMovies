@@ -142,6 +142,7 @@
 		76F3FD00194C94A40041144E /* TMDBGenre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBGenre.m; sourceTree = "<group>"; };
 		76F3FD051951E8560041144E /* MinVotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinVotesCell.h; path = TenMovies/MinVotesCell.h; sourceTree = "<group>"; };
 		76F3FD061951E8560041144E /* MinVotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MinVotesCell.m; path = TenMovies/MinVotesCell.m; sourceTree = "<group>"; };
+		76F3FD091951F8430041144E /* TMDBErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBErrors.h; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +291,7 @@
 				7627FCB41946E59300A6FFE9 /* TMDBParser.m */,
 				76F3FCFF194C94A40041144E /* TMDBGenre.h */,
 				76F3FD00194C94A40041144E /* TMDBGenre.m */,
+				76F3FD091951F8430041144E /* TMDBErrors.h */,
 				7627FCAB1946DD2200A6FFE9 /* TMDBKeyPaths.h */,
 				766D5EE11915862A002DFDA3 /* TMDBAPIKey.h */,
 				7627FCA31943461300A6FFE9 /* TMDBMovieGenreTypes.h */,

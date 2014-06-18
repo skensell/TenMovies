@@ -69,6 +69,15 @@ static const float kVerticalPaddingBetweenLabelAndIndicator = 8.0f;
     self.hidden = YES;
 }
 
+- (void)hideSpinner {
+    [_activityIndicator stopAnimating];
+}
+
+- (void)changeMessage:(NSString *)message {
+    _label.text = message;
+    [self setNeedsDisplay];
+}
+
 
 #pragma mark - Private
 

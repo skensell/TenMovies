@@ -18,5 +18,6 @@
 + (NSArray *)allGenres;
 + (TMDBGenre *)genreWithAlphabeticalIndex:(NSInteger)index;
 + (TMDBGenre *)genreWithType:(TMDBMovieGenre_t)type;
++ (TMDBGenre *)genreFromString:(NSString *)stringRep;
 
 @end

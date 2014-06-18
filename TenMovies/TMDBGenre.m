@@ -32,6 +32,15 @@
     return nil;
 }
 
++ (TMDBGenre *)genreFromString:(NSString *)stringRep {
+    for (TMDBGenre *genre in [TMDBGenre allGenres]) {
+        if ([stringRep isEqualToString:[genre asText]]) {
+            return genre;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - All Genres
 
 static inline NSArray *_allGenres() {

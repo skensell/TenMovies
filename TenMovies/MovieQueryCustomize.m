@@ -15,7 +15,7 @@
 #import "ReleaseDateCell.h"
 #import "SortByCell.h"
 
-@interface MovieQueryCustomize () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface MovieQueryCustomize () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, SwitchGenreDelegate>
 
 @property (nonatomic, strong) TMDBDiscoverMovieQueryParameters *params;
 
@@ -53,6 +53,26 @@
     }
 }
 
+#pragma mark - SwitchGenreDelegate
+
+- (void)genre:(TMDBGenre *)genre shouldBeIncluded:(BOOL)shouldBeIncluded {
+    if (shouldBeIncluded) {
+        if ([self.params.genres containsObject:genre] == NO) {
+            self.params.genres = [[self.params.genres arrayByAddingObject:genre] sortedArrayUsingComparator:^NSComparisonResult(TMDBGenre *genre1, TMDBGenre *genre2) {
+                return [[genre1 asText] compare:[genre2 asText]];
+            }];
+        }
+    } else {
+        NSMutableArray *genres = [self.params.genres mutableCopy];
+        [genres removeObject:genre];
+        self.params.genres = genres;
+    }
+}
+
+- (void)toggleAllGenres:(BOOL)includeAll {
+    self.params.genres = (includeAll) ? [TMDBGenre allGenres] : @[];
+    [self.tableView reloadData];
+}
 
 #pragma mark - UIPickerViewDelegate
 
@@ -113,13 +133,14 @@
         
         GenreCell *genreCell = (GenreCell *)cell;
         if (indexPath.row == 0) {
-            genreCell.label.text = @"All";
-            genreCell.onSwitch.on = NO;
+            genreCell.label.text = kAllGenresString;
+            genreCell.onSwitch.on = [self.params.genres count] == [[TMDBGenre allGenres] count];
         } else {
             TMDBGenre *genre = [TMDBGenre genreWithAlphabeticalIndex:indexPath.row-1];
             genreCell.label.text = [genre asText];
-            genreCell.onSwitch.on = YES;
+            genreCell.onSwitch.on = [self.params.genres containsObject:genre];
         }
+        genreCell.delegate = self;
     
     } else if ([cellIdentifier isEqualToString:releaseDateCellIdentifier]) {
         

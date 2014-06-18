@@ -48,6 +48,7 @@
 		76F3FCFB194B4C0A0041144E /* ReleaseDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FCFA194B4C0A0041144E /* ReleaseDateCell.m */; };
 		76F3FCFE194B4C200041144E /* SortByCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FCFD194B4C200041144E /* SortByCell.m */; };
 		76F3FD01194C94A40041144E /* TMDBGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FD00194C94A40041144E /* TMDBGenre.m */; };
+		76F3FD071951E8560041144E /* MinVotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3FD061951E8560041144E /* MinVotesCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,8 @@
 		76F3FCFD194B4C200041144E /* SortByCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortByCell.m; path = TenMovies/SortByCell.m; sourceTree = "<group>"; };
 		76F3FCFF194C94A40041144E /* TMDBGenre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBGenre.h; sourceTree = "<group>"; };
 		76F3FD00194C94A40041144E /* TMDBGenre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBGenre.m; sourceTree = "<group>"; };
+		76F3FD051951E8560041144E /* MinVotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinVotesCell.h; path = TenMovies/MinVotesCell.h; sourceTree = "<group>"; };
+		76F3FD061951E8560041144E /* MinVotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MinVotesCell.m; path = TenMovies/MinVotesCell.m; sourceTree = "<group>"; };
 		EE31D554E55447A4B4D532FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -357,6 +360,8 @@
 				76F3FCFA194B4C0A0041144E /* ReleaseDateCell.m */,
 				76F3FCFC194B4C200041144E /* SortByCell.h */,
 				76F3FCFD194B4C200041144E /* SortByCell.m */,
+				76F3FD051951E8560041144E /* MinVotesCell.h */,
+				76F3FD061951E8560041144E /* MinVotesCell.m */,
 			);
 			name = View;
 			path = ..;
@@ -515,6 +520,7 @@
 				7627FCA9194348F000A6FFE9 /* TMDBSignals+Discover.m in Sources */,
 				7627FCB21946E07A00A6FFE9 /* TMDBSignals.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
+				76F3FD071951E8560041144E /* MinVotesCell.m in Sources */,
 				76F25BB9191D8C0E00B730EA /* Movie.m in Sources */,
 				76F3FCFE194B4C200041144E /* SortByCell.m in Sources */,
 				7660EEC81925676000DED9ED /* HTTPClient.m in Sources */,

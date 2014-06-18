@@ -20,6 +20,7 @@
 @property (nonatomic) TMDBDSortBy_t sortByType;
 @property (nonatomic) NSArray *OF_TYPE(TMDBGenre *) genres;
 @property (nonatomic) BOOL isRandom;
+@property (nonatomic) NSUInteger minNumberOfVotes;
 
 - (NSString *)genreQueryString; // I could instead implement - (void)queryString;
 

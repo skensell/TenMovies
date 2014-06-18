@@ -14,6 +14,7 @@
 #import "GenreCell.h"
 #import "ReleaseDateCell.h"
 #import "SortByCell.h"
+#import "MinVotesCell.h"
 
 @interface MovieQueryCustomize () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, SwitchGenreDelegate>
 
@@ -51,6 +52,12 @@
         }
         
     }
+}
+
+- (IBAction)minimumVotesValueChanged:(UIStepper *)sender {
+    self.params.minNumberOfVotes = (NSUInteger)sender.value;
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:1]]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - SwitchGenreDelegate
@@ -110,6 +117,7 @@
     static NSString *releaseDateCellIdentifier = @"ReleaseDateCellIdentifier";
     static NSString *sortByCellIdentifier = @"SortByCellIdentifier";
     static NSString *genreCellIdentifier = @"GenreCellIdentifier";
+    static NSString *minVotesCellIdentifier = @"minVotesCellIdentifier";
     
     NSString *cellIdentifier;
     switch (indexPath.section) {
@@ -117,7 +125,11 @@
             cellIdentifier = releaseDateCellIdentifier;
             break;
         case 1:
-            cellIdentifier = sortByCellIdentifier;
+            if (indexPath.row == 0) {
+                cellIdentifier = sortByCellIdentifier;
+            } else if (indexPath.row == 1) {
+                cellIdentifier = minVotesCellIdentifier;
+            }
             break;
         case 2:
             cellIdentifier = genreCellIdentifier;
@@ -159,13 +171,29 @@
             sortByCell.sortByTypeSegmentedControl.selectedSegmentIndex = 1;
         }
         
+    } else if ([cellIdentifier isEqualToString:minVotesCellIdentifier]) {
+        
+        MinVotesCell *minVotesCell = (MinVotesCell *)cell;
+        minVotesCell.numberOfVotesStepper.value = self.params.minNumberOfVotes;
+        minVotesCell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d", (NSUInteger)minVotesCell.numberOfVotesStepper.value];
+        minVotesCell.numberOfVotesStepper.minimumValue = 0;
+        minVotesCell.numberOfVotesStepper.maximumValue = 1000;
+        
     }
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (section == 2) ? [TMDBGenre allGenres].count + 1 : 1;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1) {
+        return 2;
+    } else if (section == 2) {
+        return [TMDBGenre allGenres].count + 1;
+    } else {
+        return 0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -23,6 +23,7 @@ static NSString *kDictRepToYearKey = @"toYear";
 static NSString *kDictRepSortByTypeKey = @"sortByType";
 static NSString *kDictRepGenresKey = @"genres";
 static NSString *kDictRepIsRandomKey = @"isRandom";
+static NSString *kDictRepMinVotesKey = @"minVotes";
 
 
 
@@ -47,6 +48,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
                 [genres addObject:genre];
             }
             _genres = genres;
+            _minNumberOfVotes = [dict[kDictRepMinVotesKey] unsignedIntegerValue];
             
         } else {
             _fromYear = 2013;
@@ -54,6 +56,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
             _sortByType = SORT_BY_POPULARITY_DESC;
             _genres = @[[TMDBGenre genreWithType:TMDB_GENRE_ACTION]];
             _isRandom = NO;
+            _minNumberOfVotes = 5;
         }
     }
     return self;
@@ -69,6 +72,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
             @(self.sortByType), kDictRepSortByTypeKey,
             genreTypes, kDictRepGenresKey,
             @(self.isRandom), kDictRepIsRandomKey,
+            @(self.minNumberOfVotes), kDictRepMinVotesKey,
             nil];
 }
 
@@ -126,6 +130,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
             self.toYear == params.toYear &&
             self.isRandom == params.isRandom &&
             self.sortByType == params.sortByType &&
+            self.minNumberOfVotes == params.minNumberOfVotes &&
             hasSameGenres);
 }
 

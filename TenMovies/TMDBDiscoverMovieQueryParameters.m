@@ -52,7 +52,7 @@ static NSString *kDictRepIsRandomKey = @"isRandom";
             _fromYear = 2013;
             _toYear = 2014;
             _sortByType = SORT_BY_POPULARITY_DESC;
-            _genres = [TMDBGenre allGenres];
+            _genres = @[[TMDBGenre genreWithType:TMDB_GENRE_ACTION]];
             _isRandom = NO;
         }
     }

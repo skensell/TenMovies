@@ -45,10 +45,7 @@ static NSString *kMovieQuerySuffix = @"&append_to_response=images,credits,videos
 }
 
 + (NSString *)URLForDiscoveryFromMovieQueryParameters:(TMDBDiscoverMovieQueryParameters *)params {
-    NSString *sortBy = [TMDBDiscoverMovieQueryParameters sortByTypeAsString:params.sortByType];
-    NSString *genreString = [params genreQueryString];
-    NSString *suffix = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31",genreString, sortBy, params.fromYear, params.toYear];
-    return [self _URLStringFromQuery:kDiscoveryQuery appendSuffix:suffix];
+    return [self _URLStringFromQuery:kDiscoveryQuery appendSuffix:[params queryString]];
     
 }
 

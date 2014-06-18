@@ -22,12 +22,10 @@
 @property (nonatomic) BOOL isRandom;
 @property (nonatomic) NSUInteger minNumberOfVotes;
 
-- (NSString *)genreQueryString; // I could instead implement - (void)queryString;
+- (NSString *)queryString;
 
 // for storage in NSUserDefaults
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)asDictionary;
-
-+ (NSString *)sortByTypeAsString:(TMDBDSortBy_t)sortByType;
 
 @end

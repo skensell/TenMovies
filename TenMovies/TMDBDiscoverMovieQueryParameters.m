@@ -76,6 +76,16 @@ static NSString *kDictRepMinVotesKey = @"minVotes";
             nil];
 }
 
+- (NSString *)queryString {
+    NSString *genreString = [self genreQueryString];
+    NSString *sortByString = [TMDBDiscoverMovieQueryParameters sortByTypeAsString:self.sortByType];
+    NSString *query = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31&vote_count.gte=%d",genreString, sortByString, self.fromYear, self.toYear, self.minNumberOfVotes];
+    return query;
+}
+
+#pragma mark - Private
+
+// TODO : Both of these methods could be extracted to class methods on TMDBGenre and TMDBSortDescriptor
 - (NSString *)genreQueryString {
     if (![self.genres count]) {
         return @"";

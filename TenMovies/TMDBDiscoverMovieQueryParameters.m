@@ -24,6 +24,7 @@ static NSString *kDictRepSortByTypeKey = @"sortByType";
 static NSString *kDictRepGenresKey = @"genres";
 static NSString *kDictRepIsRandomKey = @"isRandom";
 static NSString *kDictRepMinVotesKey = @"minVotes";
+static NSString *kDictRepPageKey = @"page";
 
 
 
@@ -41,6 +42,7 @@ static NSString *kDictRepMinVotesKey = @"minVotes";
             _toYear = [dict[kDictRepToYearKey] integerValue];
             _sortByType = [dict[kDictRepSortByTypeKey] intValue];
             _isRandom = [dict[kDictRepIsRandomKey] boolValue];
+            _page = [dict[kDictRepPageKey] integerValue];
             
             NSMutableArray *genres = [NSMutableArray new];
             for (NSNumber *genreType in (NSArray *)dict[kDictRepGenresKey]) {
@@ -57,6 +59,7 @@ static NSString *kDictRepMinVotesKey = @"minVotes";
             _genres = @[[TMDBGenre genreWithType:TMDB_GENRE_ACTION]];
             _isRandom = NO;
             _minNumberOfVotes = 5;
+            _page = 1;
         }
     }
     return self;
@@ -73,13 +76,14 @@ static NSString *kDictRepMinVotesKey = @"minVotes";
             genreTypes, kDictRepGenresKey,
             @(self.isRandom), kDictRepIsRandomKey,
             @(self.minNumberOfVotes), kDictRepMinVotesKey,
+            @(self.page), kDictRepPageKey,
             nil];
 }
 
 - (NSString *)queryString {
     NSString *genreString = [self genreQueryString];
     NSString *sortByString = [TMDBDiscoverMovieQueryParameters sortByTypeAsString:self.sortByType];
-    NSString *query = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31&vote_count.gte=%d",genreString, sortByString, self.fromYear, self.toYear, self.minNumberOfVotes];
+    NSString *query = [NSString stringWithFormat:@"&with_genres=%@&sort_by=%@&release_date.gte=%d-01-01&release_date.lte=%d-12-31&vote_count.gte=%d&page=%d",genreString, sortByString, self.fromYear, self.toYear, self.minNumberOfVotes, self.page];
     return query;
 }
 
@@ -141,6 +145,7 @@ static NSString *kDictRepMinVotesKey = @"minVotes";
             self.isRandom == params.isRandom &&
             self.sortByType == params.sortByType &&
             self.minNumberOfVotes == params.minNumberOfVotes &&
+            self.page == params.page &&
             hasSameGenres);
 }
 

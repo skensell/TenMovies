@@ -21,6 +21,7 @@
 @property (nonatomic) NSArray *OF_TYPE(TMDBGenre *) genres;
 @property (nonatomic) BOOL isRandom;
 @property (nonatomic) NSUInteger minNumberOfVotes;
+@property (nonatomic) NSUInteger page;
 
 - (NSString *)queryString;
 

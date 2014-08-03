@@ -28,6 +28,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 @property (nonatomic, strong) ActivityView *activityView;
 @property (nonatomic, strong) NSArray *movies OF_TYPE(Movie);
 @property (nonatomic, strong) TMDBDiscoverMovieQueryParameters *params;
+@property (nonatomic) BOOL isDownloadingMore;
+@property (nonatomic) BOOL noMoreMovies;
 @end
 
 @implementation MovieList
@@ -39,6 +41,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.noMoreMovies = NO;
     
     TMDBDiscoverMovieQueryParameters *params = [DefaultsManager discoverMovieQueryParameters];
     BOOL hasCustomized = [params isEqual:self.params] == NO;
@@ -49,6 +52,11 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
         [self.tableView reloadData];
         [self _downloadMoviesForDiscoveryWithParams:params];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [DefaultsManager setDiscoverMovieQueryParameters:self.params];
 }
 
 - (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
@@ -133,5 +141,35 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
         tvc.movie = movie;
     }
 }
+
+#pragma mark - ScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat height = scrollView.contentSize.height;
+    CGFloat currentY = scrollView.contentOffset.y + [[UIScreen mainScreen] bounds].size.height;
+    if (!self.isDownloadingMore && !self.noMoreMovies && height > 0 && currentY > 0.90 * height) {
+        self.isDownloadingMore = YES;
+        self.params.page += 1;
+        [[TMDBSignals movieIDsFromDiscoverQueryParameters:self.params] subscribeNext:^(NSArray *movieIDs) {
+            [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
+                NSArray *moreMovies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
+                if ([moreMovies count]) {
+                    self.movies = [self.movies arrayByAddingObjectsFromArray:moreMovies];
+                }
+                self.isDownloadingMore = NO;
+            }];
+        } error:^(NSError *error) {
+            DEBUG(@"Downloading More Movies failed: %@", error.localizedDescription);
+            if ([error.domain isEqualToString:TMDB_ERROR_DOMAIN]) {
+                if (error.code == TMDB_ERROR_NO_MOVIES) {
+                    self.noMoreMovies = YES;
+                }
+            }
+            self.isDownloadingMore = NO;
+        }];
+        
+    }
+}
+
 
 @end

@@ -46,6 +46,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     if (hasCustomized) {
         self.params = params;
         self.movies = nil;
+        [self.tableView reloadData];
         [self _downloadMoviesForDiscoveryWithParams:params];
     }
 }

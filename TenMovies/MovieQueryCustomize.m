@@ -175,11 +175,13 @@
         
         MinVotesCell *minVotesCell = (MinVotesCell *)cell;
         minVotesCell.numberOfVotesStepper.value = self.params.minNumberOfVotes;
-        minVotesCell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d", (NSUInteger)minVotesCell.numberOfVotesStepper.value];
+        minVotesCell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d", (int)minVotesCell.numberOfVotesStepper.value];
         minVotesCell.numberOfVotesStepper.minimumValue = 0;
         minVotesCell.numberOfVotesStepper.maximumValue = 1000;
         
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

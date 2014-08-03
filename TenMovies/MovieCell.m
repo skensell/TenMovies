@@ -82,6 +82,7 @@
     if (_movie.thumbnail) {
         _poster.image = [UIImage imageWithData:_movie.thumbnail];
     } else {
+        _poster.image = nil;
         if (_movie.posterPath == (id)[NSNull null] || _movie.posterPath.length == 0) {
             // TODO: say no Image available
         } else {

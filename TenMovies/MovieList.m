@@ -74,7 +74,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     if (!_activityView) {
         _activityView = [[ActivityView alloc] initWithBackgroundColor:[UIColor whiteColor]
                                                                 style:UIActivityIndicatorViewStyleGray
-                                                                scale:2.0f
+                                                                scale:1.0f
                                                                 color:[UIColor blackColor]
                                                           coverScreen:YES
                                                     isInNavController:YES

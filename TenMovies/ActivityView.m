@@ -8,7 +8,7 @@
 
 #import "ActivityView.h"
 
-static const float kDefaultLabelFontSize = 8.0f;
+static const float kDefaultLabelFontSize = 16.0f;
 static const int kNavBarVerticalOffset = -64.0f;
 static const float kVerticalPaddingBetweenLabelAndIndicator = 8.0f;
 

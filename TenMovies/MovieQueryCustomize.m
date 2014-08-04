@@ -228,7 +228,8 @@
     return title;
 }
 
-#pragma mark - Private
-
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 @end

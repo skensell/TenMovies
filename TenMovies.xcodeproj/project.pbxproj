@@ -39,6 +39,8 @@
 		766D5F1F1916C19F002DFDA3 /* CoreHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D5F1E1916C19F002DFDA3 /* CoreHTTPClient.m */; };
 		768037B31931065700EC2FDC /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768037B01931065700EC2FDC /* MovieCell.m */; };
 		768037B719331CAA00EC2FDC /* MovieDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 768037B619331CAA00EC2FDC /* MovieDetail.m */; };
+		76A06FFF198EBAE600602336 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A06FFE198EBAE600602336 /* AboutViewController.m */; };
+		76A07002198EE53300602336 /* UINavControllerNoRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A07001198EE53300602336 /* UINavControllerNoRotate.m */; };
 		76F25BB6191D2FF000B730EA /* MovieList.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB5191D2FF000B730EA /* MovieList.m */; };
 		76F25BB9191D8C0E00B730EA /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BB8191D8C0E00B730EA /* Movie.m */; };
 		76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F25BBB191FD91500B730EA /* Movie+TMDB.m */; };
@@ -122,6 +124,10 @@
 		768037B01931065700EC2FDC /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieCell.m; path = TenMovies/MovieCell.m; sourceTree = "<group>"; };
 		768037B519331CAA00EC2FDC /* MovieDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetail.h; sourceTree = "<group>"; };
 		768037B619331CAA00EC2FDC /* MovieDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetail.m; sourceTree = "<group>"; };
+		76A06FFD198EBAE500602336 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		76A06FFE198EBAE600602336 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		76A07000198EE53300602336 /* UINavControllerNoRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavControllerNoRotate.h; sourceTree = "<group>"; };
+		76A07001198EE53300602336 /* UINavControllerNoRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavControllerNoRotate.m; sourceTree = "<group>"; };
 		76F25BB4191D2FF000B730EA /* MovieList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieList.h; sourceTree = "<group>"; };
 		76F25BB5191D2FF000B730EA /* MovieList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieList.m; sourceTree = "<group>"; };
 		76F25BB7191D8C0E00B730EA /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 		7627FCA119431B9F00A6FFE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				76A07000198EE53300602336 /* UINavControllerNoRotate.h */,
+				76A07001198EE53300602336 /* UINavControllerNoRotate.m */,
+				76A06FFD198EBAE500602336 /* AboutViewController.h */,
+				76A06FFE198EBAE600602336 /* AboutViewController.m */,
 				76F25BB4191D2FF000B730EA /* MovieList.h */,
 				76F25BB5191D2FF000B730EA /* MovieList.m */,
 				768037B519331CAA00EC2FDC /* MovieDetail.h */,
@@ -519,6 +529,7 @@
 				766D5EEC19158D2D002DFDA3 /* NSArray+JSON.m in Sources */,
 				766D5EB9191567DC002DFDA3 /* AppDelegate.m in Sources */,
 				76F3FD01194C94A40041144E /* TMDBGenre.m in Sources */,
+				76A07002198EE53300602336 /* UINavControllerNoRotate.m in Sources */,
 				7627FCA9194348F000A6FFE9 /* TMDBSignals+Discover.m in Sources */,
 				7627FCB21946E07A00A6FFE9 /* TMDBSignals.m in Sources */,
 				766D5EF6191591A0002DFDA3 /* TextHelper.m in Sources */,
@@ -538,6 +549,7 @@
 				766D5EEE19158D2D002DFDA3 /* NSDictionary+JSON.m in Sources */,
 				766D5EED19158D2D002DFDA3 /* NSData+JSON.m in Sources */,
 				7627FCBC1948991E00A6FFE9 /* DefaultsManager.m in Sources */,
+				76A06FFF198EBAE600602336 /* AboutViewController.m in Sources */,
 				76F25BC0191FDC6200B730EA /* TMDBSignals+Movie.m in Sources */,
 				76F25BBC191FD91500B730EA /* Movie+TMDB.m in Sources */,
 				7660EEC51922ADA500DED9ED /* ActivityView.m in Sources */,

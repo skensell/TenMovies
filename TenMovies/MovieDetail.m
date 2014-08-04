@@ -25,4 +25,8 @@
     self.summaryTextView.text = self.movie.overview;
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

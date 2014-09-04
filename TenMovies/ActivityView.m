@@ -78,6 +78,15 @@ static const float kVerticalPaddingBetweenLabelAndIndicator = 8.0f;
     [self setNeedsDisplay];
 }
 
+- (void)showOnlyMessage:(NSString *)message {
+    if (self.superview) {
+        [self _hideTableViewLinesIfNeeded];
+        self.hidden = NO;
+        [self _setGeometryBasedOnSuperview];
+        [_activityIndicator stopAnimating];
+        [self changeMessage:message];
+    }
+}
 
 #pragma mark - Private
 

@@ -31,5 +31,5 @@
 
 - (void)hideSpinner;
 - (void)changeMessage:(NSString *)message;
-
+- (void)showOnlyMessage:(NSString *)message;
 @end

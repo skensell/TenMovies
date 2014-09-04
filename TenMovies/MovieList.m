@@ -80,7 +80,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     if ([AFNetworkReachabilityManager sharedManager].reachableViaWWAN &&
         [DefaultsManager allowsWWAN] == NO) {
         UIAlertView *noWifiAlert = [[UIAlertView alloc] initWithTitle:@"No wifi"
-                                                             message:@"To give you great movie suggestions, TenMovies needs to use the internet. Is it okay if we use 3G?"
+                                                             message:@"To give you great movie suggestions, Ten Movies needs to use the internet. Is it okay if we use 3G?"
                                                             delegate:self
                                                    cancelButtonTitle:@"OK"
                                                    otherButtonTitles:@"No", nil];

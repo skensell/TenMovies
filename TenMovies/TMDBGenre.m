@@ -77,7 +77,7 @@ static inline NSArray *_allGenres() {
              @[@(TMDB_GENRE_DOCUMENTARY), @"Documentary"],
              @[@(TMDB_GENRE_DRAMA), @"Drama"],
              @[@(TMDB_GENRE_EASTERN), @"Eastern"],
-             @[@(TMDB_GENRE_EROTIC), @"Erotic"],
+             //@[@(TMDB_GENRE_EROTIC), @"Erotic"],
              @[@(TMDB_GENRE_FAMILY), @"Family"],
              @[@(TMDB_GENRE_FAN_FILM), @"Fan Film"],
              @[@(TMDB_GENRE_FANTASY), @"Fantasy"],

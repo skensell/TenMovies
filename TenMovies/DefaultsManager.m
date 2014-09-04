@@ -11,6 +11,7 @@
 #import "TMDBDiscoverMovieQueryParameters.h"
 
 static NSString *kDiscoverMovieQueryParamsKey = @"DiscoverMovieQueryParamsKey";
+static NSString *kAllowsWWANKey = @"AllowsWWANKey";
 
 @implementation DefaultsManager
 
@@ -22,6 +23,17 @@ static NSString *kDiscoverMovieQueryParamsKey = @"DiscoverMovieQueryParamsKey";
 
 + (void)setDiscoverMovieQueryParameters:(TMDBDiscoverMovieQueryParameters *)params {
     [[NSUserDefaults standardUserDefaults] setObject:[params asDictionary] forKey:kDiscoverMovieQueryParamsKey];
+}
+
++ (BOOL)allowsWWAN {
+    NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:kAllowsWWANKey];
+    
+    return [number boolValue];
+}
+
++ (void)setAllowsWWAN:(BOOL)allowsWWAN {
+    [[NSUserDefaults standardUserDefaults] setObject:@(allowsWWAN)
+                                              forKey:kAllowsWWANKey];
 }
 
 @end

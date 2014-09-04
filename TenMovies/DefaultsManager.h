@@ -15,4 +15,7 @@
 + (TMDBDiscoverMovieQueryParameters *)discoverMovieQueryParameters;
 + (void)setDiscoverMovieQueryParameters:(TMDBDiscoverMovieQueryParameters *)params;
 
++ (BOOL)allowsWWAN;
++ (void)setAllowsWWAN:(BOOL)allowsWWAN;
+
 @end

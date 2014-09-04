@@ -36,7 +36,24 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self _downloadMoviesForDiscoveryWithParams:self.params];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                if (!self.movies) {
+                    [self _downloadMoviesForDiscoveryWithParams:self.params];
+                } else {
+                    [self.activityView stopAnimating];
+                }
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            case AFNetworkReachabilityStatusUnknown:
+            default:
+                [self.activityView showOnlyMessage:@"No connection :("];
+                break;
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,8 +77,19 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
 }
 
 - (void)_downloadMoviesForDiscoveryWithParams:(TMDBDiscoverMovieQueryParameters *)params {
+    if ([AFNetworkReachabilityManager sharedManager].reachableViaWWAN &&
+        [DefaultsManager allowsWWAN] == NO) {
+        UIAlertView *noWifiAlert = [[UIAlertView alloc] initWithTitle:@"No wifi"
+                                                             message:@"To give you great movie suggestions, TenMovies needs to use the internet. Is it okay if we use 3G?"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:@"No", nil];
+        [noWifiAlert show];
+        return;
+    }
+    
     [self.activityView startAnimating];
-    [self.activityView changeMessage:@"Downloading movies..."];
+    [self.activityView changeMessage:@"Finding movies..."];
     
     [[TMDBSignals movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
         [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
@@ -70,10 +98,20 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     } error:^(NSError *error) {
         if ([error.domain isEqualToString:TMDB_ERROR_DOMAIN]) {
             self.movies = nil;
-            [self.activityView hideSpinner];
-            [self.activityView changeMessage:error.localizedDescription];
+            [self.activityView showOnlyMessage:error.localizedDescription];
         }
     }];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [DefaultsManager setAllowsWWAN:YES];
+        [self _downloadMoviesForDiscoveryWithParams:self.params];
+    } else {
+        [self.activityView showOnlyMessage:@"No movies :("];
+    }
 }
 
 #pragma mark - Properties
@@ -86,7 +124,7 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
                                                                 color:[UIColor blackColor]
                                                           coverScreen:YES
                                                     isInNavController:YES
-                                                            labelText:@"Downloading movies..."];
+                                                            labelText:@"Finding movies..."];
         [self.tableView addSubview:_activityView];
     }
     return _activityView;

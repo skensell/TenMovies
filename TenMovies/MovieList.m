@@ -92,8 +92,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
     [self.activityView changeMessage:@"Finding movies..."];
     
     [[TMDBSignals movieIDsFromDiscoverQueryParameters:params] subscribeNext:^(NSArray *movieIDs) {
-        [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
-            self.movies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
+        [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(NSArray *movieDicts) {
+            self.movies = [Movie moviesFromTMDBResults:movieDicts];
         }];
     } error:^(NSError *error) {
         if ([error.domain isEqualToString:TMDB_ERROR_DOMAIN]) {
@@ -189,8 +189,8 @@ static NSString *kViewTrailerSegueIdentifier = @"viewTrailerSegue";
         self.isDownloadingMore = YES;
         self.params.page += 1;
         [[TMDBSignals movieIDsFromDiscoverQueryParameters:self.params] subscribeNext:^(NSArray *movieIDs) {
-            [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(RACTuple *movieDicts) {
-                NSArray *moreMovies = [Movie moviesFromTMDBResults:[movieDicts allObjects]];
+            [[TMDBSignals movieDictsFromMovieIDs:movieIDs] subscribeNext:^(NSArray *movieDicts) {
+                NSArray *moreMovies = [Movie moviesFromTMDBResults:movieDicts];
                 if ([moreMovies count]) {
                     self.movies = [self.movies arrayByAddingObjectsFromArray:moreMovies];
                 }

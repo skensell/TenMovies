@@ -19,8 +19,10 @@
     [[CoreHTTPClient sharedClient] GET:url parameters:nil
                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                [subject sendNext:responseObject];
+                               [subject sendCompleted];
                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                [subject sendError:error];
+                               [subject sendCompleted];
                            }];
     return subject;
 }

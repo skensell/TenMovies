@@ -26,7 +26,13 @@
     RACSequence *movieInfoSignals = [movieIDs.rac_sequence map:^id(NSNumber *movieID) {
         return [self movieInfoFromMovieID:movieID];
     }];
-    RACSignal *combinedMovieInfoSignal = [RACSignal combineLatest:movieInfoSignals];
+    RACSignal *combinedMovieInfoSignal = [[RACSignal
+        combineLatest:movieInfoSignals]
+        map:^NSArray*(RACTuple *movieDicts) {
+            return [[movieDicts.rac_sequence filter:^BOOL(id value) {
+                return (value && value != [NSNull null]);
+            }] array];
+    }];
     return combinedMovieInfoSignal;
 }
 
@@ -37,7 +43,18 @@
 }
 
 + (RACSignal *OF_TYPE(NSDictionary *))movieInfoFromMovieID:(NSNumber *)movieID {
-    return [HTTPClient GET:[TMDBUrls URLForMovie:movieID]];
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [[HTTPClient GET:[TMDBUrls URLForMovie:movieID]] subscribeNext:^(id x) {
+            [subscriber sendNext:x];
+        } error:^(NSError *error) {
+            ERROR(@"Failed movieInfo request: %@", [error localizedDescription]);
+            [subscriber sendNext:nil];
+        } completed:^{
+            [subscriber sendCompleted];
+        }];
+        
+        return nil;
+    }];
 }
 
 @end

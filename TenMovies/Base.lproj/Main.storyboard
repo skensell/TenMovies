@@ -38,8 +38,36 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samuel L. Jackson, John Travolta, Uma Thurman, Quentin Tarantino" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="157" translatesAutoresizingMaskIntoConstraints="NO" id="yJU-Qw-SWz">
+                                            <rect key="frame" x="143" y="64" width="169" height="84"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="84" id="wF8-Ib-HmY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quentin Tarantino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfW-qA-Bd3">
+                                            <rect key="frame" x="143" y="160" width="169" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="FDy-aU-Zj9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2003" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnC-I8-HSX">
+                                            <rect key="frame" x="194" y="28" width="66" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="66" id="9Ov-0i-shZ"/>
+                                                <constraint firstAttribute="height" constant="21" id="DEQ-LB-xBs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kB-JO-P74">
-                                            <rect key="frame" x="274" y="27" width="38" height="21"/>
+                                            <rect key="frame" x="274" y="28" width="38" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="c4W-sd-SVo"/>
                                                 <constraint firstAttribute="width" constant="38" id="yVE-Hk-D8g"/>
@@ -49,7 +77,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaW-iN-fob">
-                                            <rect key="frame" x="143" y="27" width="37" height="21"/>
+                                            <rect key="frame" x="143" y="28" width="37" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="eH6-7Z-usZ"/>
                                                 <constraint firstAttribute="width" constant="37" id="uYq-Vt-b39"/>
@@ -58,48 +86,9 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2003" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnC-I8-HSX">
-                                            <rect key="frame" x="194" y="27" width="66" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="66" id="9Ov-0i-shZ"/>
-                                                <constraint firstAttribute="height" constant="21" id="DEQ-LB-xBs"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samuel L. Jackson, John Travolta, Uma Thurman, Quentin Tarantino" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="157" translatesAutoresizingMaskIntoConstraints="NO" id="yJU-Qw-SWz">
-                                            <rect key="frame" x="143" y="63" width="169" height="84"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="84" id="wF8-Ib-HmY"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quentin Tarantino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfW-qA-Bd3">
-                                            <rect key="frame" x="143" y="159" width="169" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="FDy-aU-Zj9"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2003" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI7-fj-yqG">
-                                            <rect key="frame" x="194" y="27" width="66" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="66" id="bII-Q2-8ZU"/>
-                                                <constraint firstAttribute="height" constant="21" id="q3h-If-JqY"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="XaW-iN-fob" firstAttribute="top" secondItem="nR5-2s-vvz" secondAttribute="bottom" constant="-1" id="4ZS-8o-bOm"/>
-                                        <constraint firstItem="XaW-iN-fob" firstAttribute="centerY" secondItem="dI7-fj-yqG" secondAttribute="centerY" id="4bk-x9-vsU"/>
+                                        <constraint firstItem="XaW-iN-fob" firstAttribute="top" secondItem="nR5-2s-vvz" secondAttribute="bottom" id="4ZS-8o-bOm"/>
                                         <constraint firstItem="nR5-2s-vvz" firstAttribute="top" secondItem="Yk5-YI-0YN" secondAttribute="topMargin" id="5eP-RZ-pwl"/>
                                         <constraint firstItem="9kB-JO-P74" firstAttribute="centerY" secondItem="OnC-I8-HSX" secondAttribute="centerY" id="70S-VV-lO5"/>
                                         <constraint firstItem="itF-ZE-Kn4" firstAttribute="leading" secondItem="Yk5-YI-0YN" secondAttribute="leadingMargin" constant="2" id="7w9-eX-2he"/>
@@ -112,14 +101,13 @@
                                         <constraint firstItem="nR5-2s-vvz" firstAttribute="leading" secondItem="XaW-iN-fob" secondAttribute="leading" id="FRe-Mm-vrN"/>
                                         <constraint firstItem="yJU-Qw-SWz" firstAttribute="width" secondItem="nR5-2s-vvz" secondAttribute="width" id="Kx8-0P-dBh"/>
                                         <constraint firstItem="9kB-JO-P74" firstAttribute="trailing" secondItem="nR5-2s-vvz" secondAttribute="trailing" id="OGy-lv-E0F"/>
-                                        <constraint firstItem="nR5-2s-vvz" firstAttribute="centerX" secondItem="dI7-fj-yqG" secondAttribute="centerX" id="PH0-09-iCI"/>
                                         <constraint firstItem="OnC-I8-HSX" firstAttribute="centerY" secondItem="XaW-iN-fob" secondAttribute="centerY" id="Qj6-aA-tB6"/>
                                         <constraint firstItem="nR5-2s-vvz" firstAttribute="leading" secondItem="itF-ZE-Kn4" secondAttribute="trailing" constant="8" id="Qra-tY-r5X"/>
-                                        <constraint firstItem="OnC-I8-HSX" firstAttribute="leading" secondItem="dI7-fj-yqG" secondAttribute="leading" id="dJf-rM-U5E"/>
                                         <constraint firstItem="dfW-qA-Bd3" firstAttribute="width" secondItem="nR5-2s-vvz" secondAttribute="width" id="f6r-br-QUN"/>
                                         <constraint firstItem="nR5-2s-vvz" firstAttribute="trailing" secondItem="Yk5-YI-0YN" secondAttribute="trailingMargin" id="lFI-o3-YCT"/>
                                         <constraint firstAttribute="centerY" secondItem="itF-ZE-Kn4" secondAttribute="centerY" id="nN7-Ex-gZc"/>
                                         <constraint firstItem="dfW-qA-Bd3" firstAttribute="top" secondItem="yJU-Qw-SWz" secondAttribute="bottom" constant="12" id="nyg-g1-3Qr"/>
+                                        <constraint firstItem="OnC-I8-HSX" firstAttribute="centerX" secondItem="nR5-2s-vvz" secondAttribute="centerX" constant="-0.5" id="seH-mm-mgg"/>
                                         <constraint firstAttribute="centerY" secondItem="itF-ZE-Kn4" secondAttribute="centerY" id="vni-Lu-rcD"/>
                                         <constraint firstItem="yJU-Qw-SWz" firstAttribute="centerX" secondItem="nR5-2s-vvz" secondAttribute="centerX" id="z2z-uE-uvK"/>
                                         <constraint firstItem="nR5-2s-vvz" firstAttribute="leading" secondItem="XaW-iN-fob" secondAttribute="leading" id="ziS-1d-dvY"/>

@@ -257,12 +257,15 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YgF-gY-s2W" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgF-gY-s2W" customClass="YTPlayerView">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="199"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="199" id="8xZ-L2-wdg"/>
+                                </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSA-4K-cG5">
-                                <rect key="frame" x="20" y="195" width="280" height="297"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSA-4K-cG5">
+                                <rect key="frame" x="20" y="207" width="280" height="341"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,6 +274,15 @@ Cg
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H0F-4y-yNV" firstAttribute="top" secondItem="bSA-4K-cG5" secondAttribute="bottom" constant="20" id="Eg9-vS-kEX"/>
+                            <constraint firstItem="YgF-gY-s2W" firstAttribute="leading" secondItem="K6P-MV-gJw" secondAttribute="leadingMargin" constant="-20" id="Fs7-yC-vzh"/>
+                            <constraint firstItem="YgF-gY-s2W" firstAttribute="top" secondItem="vvr-F1-Jdv" secondAttribute="bottom" constant="-64" id="c5h-PT-1sX"/>
+                            <constraint firstItem="bSA-4K-cG5" firstAttribute="leading" secondItem="K6P-MV-gJw" secondAttribute="leadingMargin" constant="4" id="erx-QV-h9g"/>
+                            <constraint firstItem="bSA-4K-cG5" firstAttribute="top" secondItem="YgF-gY-s2W" secondAttribute="bottom" constant="8" id="g0X-1o-l8m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bSA-4K-cG5" secondAttribute="trailing" constant="4" id="gwT-Hf-4qD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YgF-gY-s2W" secondAttribute="trailing" constant="-20" id="zFe-fc-SnU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q0u-cr-wWS"/>
                     <connections>

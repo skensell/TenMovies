@@ -25,6 +25,7 @@
 @implementation MovieQueryCustomize
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [DefaultsManager setDiscoverMovieQueryParameters:self.params];
 }
 
@@ -44,7 +45,7 @@
     if ([sender isKindOfClass:[UISegmentedControl class]]) {
         
         UISegmentedControl *sortByTypeSegmentedControl = (UISegmentedControl *)sender;
-        int index = sortByTypeSegmentedControl.selectedSegmentIndex;
+        long index = sortByTypeSegmentedControl.selectedSegmentIndex;
         if (index == 0) {
             self.params.sortByType = SORT_BY_POPULARITY_DESC;
         } else {
@@ -103,7 +104,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%d", row + kFirstYearToAllow];
+    return [NSString stringWithFormat:@"%ld", row + kFirstYearToAllow];
 }
 
 

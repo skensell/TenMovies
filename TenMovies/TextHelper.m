@@ -119,7 +119,7 @@ static const short _base64DecodingTable[256] = {
         return nil;
     }
     const char * objPointer = [string cStringUsingEncoding:NSASCIIStringEncoding];
-    int intLength = strlen(objPointer);
+    long intLength = strlen(objPointer);
     int intCurrent;
     int i = 0, j = 0, k;
     

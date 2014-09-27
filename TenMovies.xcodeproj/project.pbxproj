@@ -15,6 +15,7 @@
 		7627FCB51946E59300A6FFE9 /* TMDBParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7627FCB41946E59300A6FFE9 /* TMDBParser.m */; };
 		7627FCB8194891AE00A6FFE9 /* MovieQueryCustomize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7627FCB7194891AE00A6FFE9 /* MovieQueryCustomize.m */; };
 		7627FCBC1948991E00A6FFE9 /* DefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7627FCBB1948991E00A6FFE9 /* DefaultsManager.m */; };
+		764DDD0419D705750073BBA6 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764DDD0319D705750073BBA6 /* Launch Screen.xib */; };
 		7660EEC51922ADA500DED9ED /* ActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC41922ADA500DED9ED /* ActivityView.m */; };
 		7660EEC81925676000DED9ED /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7660EEC71925676000DED9ED /* HTTPClient.m */; };
 		766D5EA9191567DC002DFDA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766D5EA8191567DC002DFDA3 /* Foundation.framework */; };
@@ -82,6 +83,7 @@
 		7627FCB7194891AE00A6FFE9 /* MovieQueryCustomize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieQueryCustomize.m; sourceTree = "<group>"; };
 		7627FCBA1948991E00A6FFE9 /* DefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsManager.h; sourceTree = "<group>"; };
 		7627FCBB1948991E00A6FFE9 /* DefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsManager.m; sourceTree = "<group>"; };
+		764DDD0319D705750073BBA6 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		7660EEC31922ADA500DED9ED /* ActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityView.h; sourceTree = "<group>"; };
 		7660EEC41922ADA500DED9ED /* ActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityView.m; sourceTree = "<group>"; };
 		7660EEC61925676000DED9ED /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				766D5EB7191567DC002DFDA3 /* AppDelegate.h */,
+				764DDD0319D705750073BBA6 /* Launch Screen.xib */,
 				766D5EB8191567DC002DFDA3 /* AppDelegate.m */,
 				766D5EC0191567DC002DFDA3 /* Images.xcassets */,
 				766D5EB0191567DC002DFDA3 /* TenMovies-Info.plist */,
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				766D5EC1191567DC002DFDA3 /* Images.xcassets in Resources */,
+				764DDD0419D705750073BBA6 /* Launch Screen.xib in Resources */,
 				766D5EB3191567DC002DFDA3 /* InfoPlist.strings in Resources */,
 				766D5EBC191567DC002DFDA3 /* Main.storyboard in Resources */,
 			);

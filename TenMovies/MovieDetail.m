@@ -18,15 +18,12 @@
 @implementation MovieDetail
 
 -(void)viewDidLoad {
+    [super viewDidLoad];
     if ([self.movie.youtubeID length]) {
         [self.player loadWithVideoId:self.movie.youtubeID];
     }
     self.title = self.movie.title;
     self.summaryTextView.text = self.movie.overview;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

@@ -3,20 +3,25 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "TangerineCamera58.png",
+      "filename" : "TangerineCamera58x58NoAlpha.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "TangerineCamera 80.png",
+      "filename" : "TangerineCamera80x80NoAlpha.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "TangerineCamera.png",
+      "filename" : "TangerineCamera120x120NoAlpha.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "3x"
     }
   ],
   "info" : {

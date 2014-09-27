@@ -13,13 +13,19 @@
 #undef DEBUG
 #endif
 
+#if DEBUG_MODE
 #define THIS_METHOD NSStringFromSelector(_cmd)
 #define THIS_CLASS [self class]
-
 #define DEBUG(A, ...) NSLog(@"DEBUG %@", [NSString stringWithFormat:A, ##__VA_ARGS__])
 #define INFO(A, ...) NSLog(@"INFO %@--%@ %@", THIS_CLASS, THIS_METHOD, [NSString stringWithFormat:A, ##__VA_ARGS__])
 #define WARNING(A, ...) NSLog(@"WARNING %@--%@ %@", THIS_CLASS, THIS_METHOD, [NSString stringWithFormat:A, ##__VA_ARGS__])
 #define ERROR(A, ...) NSLog(@"ERROR %@--%@ %@", THIS_CLASS, THIS_METHOD, [NSString stringWithFormat:A, ##__VA_ARGS__])
+#else
+#define DEBUG(A, ...)
+#define INFO(A, ...)
+#define WARNING(A, ...)
+#define ERROR(A, ...) 
+#endif
 
 #define OF_TYPE(A, ...)
 

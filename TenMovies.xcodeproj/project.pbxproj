@@ -624,6 +624,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_MODE = 1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -662,6 +663,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_MODE = 0;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -687,6 +689,7 @@
 				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
 				INFOPLIST_FILE = "TenMovies/TenMovies-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d7cb4065-996e-47ce-9994-4a220860a13d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -702,6 +705,7 @@
 				GCC_PREFIX_HEADER = "TenMovies/TenMovies-Prefix.pch";
 				INFOPLIST_FILE = "TenMovies/TenMovies-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d7cb4065-996e-47ce-9994-4a220860a13d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
